@@ -13,8 +13,6 @@ module.exports = class LinkFFmpeg {
         console.log('options', this.link, this.port);
         this._process = null;
         this._observer = new EventEmitter();
-
-
         this._createProcess();
     }
 
@@ -22,43 +20,43 @@ module.exports = class LinkFFmpeg {
 
         this._process = child_process.spawn('ffmpeg', this._commandArgs);
 
-        if (this._process.stderr) {
+        // if (this._process.stderr) {
 
-            this._process.stderr.setEncoding('utf-8');
+        //     this._process.stderr.setEncoding('utf-8');
 
-            this._process.stderr.on('data', data => {
-                // console.log('ffmpeg::process::data [data:%o]', data)
-                this.Logger.error(`ffmpeg ${data}`)
-            }
-            );
+        //     this._process.stderr.on('data', data => {
+        //         // console.log('ffmpeg::process::data [data:%o]', data)
+        //         this.Logger.error(`ffmpeg ${data}`)
+        //     }
+        //     );
 
-        }
+        // }
 
-        if (this._process.stdout) {
-            this._process.stdout.setEncoding('utf-8');
+        // if (this._process.stdout) {
+        //     this._process.stdout.setEncoding('utf-8');
 
-            this._process.stdout.on('data', data => {
-                // console.log('ffmpeg::process::data [data:%o]', data)
+        //     this._process.stdout.on('data', data => {
+        //         // console.log('ffmpeg::process::data [data:%o]', data)
 
-                this.Logger.info(`data ${data}`)
-            }
-            );
-        }
+        //         this.Logger.info(`data ${data}`)
+        //     }
+        //     );
+        // }
 
-        this._process.on('message', message => {
-            // console.log('ffmpeg::process::message [message:%o]', message)
+        // this._process.on('message', message => {
+        //     // console.log('ffmpeg::process::message [message:%o]', message)
 
-            this.Logger.info(`message ${message}`)
-        }
-        );
+        //     this.Logger.info(`message ${message}`)
+        // }
+        // );
 
-        this._process.on('error', error => {
-            // console.error('ffmpeg::process::error [error:%o]', error)
+        // this._process.on('error', error => {
+        //     // console.error('ffmpeg::process::error [error:%o]', error)
 
-            this.Logger.error(`error ${error}`)
-            // kill(this._process.pid)
-        }
-        );
+        //     this.Logger.error(`error ${error}`)
+        //     // kill(this._process.pid)
+        // }
+        // );
 
         this._process.once('close', () => {
             console.log('ffmpeg::process::close');

@@ -22,31 +22,30 @@ async function createProducer(transport, link) {
             link: link,
             port: transport.tuple.localPort
         })
-            const producer = await transport.produce({
+    const producer = await transport.produce({
 
-                kind: 'audio',
-                rtpParameters: {
-                    codecs: [{
-                        mimeType: 'audio/opus',
-                        clockRate: 48000,
-                        payloadType: 101,
-                        channels: 2,
-                        parameters: { 'sprop-stereo': 1 },
-                        rtcpFeedback: [
-                            { type: 'transport-cc' },
-                        ],
-                    }],
-                    encodings: [{ ssrc: 11111111 }],
-                },
-                appData: {},
-            });
+        kind: 'audio',
+        rtpParameters: {
+            codecs: [{
+                mimeType: 'audio/opus',
+                clockRate: 48000,
+                payloadType: 101,
+                channels: 2,
+                parameters: { 'sprop-stereo': 1 },
+                rtcpFeedback: [
+                    { type: 'transport-cc' },
+                ],
+            }],
+            encodings: [{ ssrc: 11111111 }],
+        },
+        appData: {},
+    });
     return producer
 };
 
 async function direcLink (router, data) {
     const transport = await createTransport(router);
     const producer = await createProducer(transport, data.link);
-    console.log(`Producer ID: ${producer.id}`);
     return { producer, transport }
 };
 module.exports=direcLink

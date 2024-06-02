@@ -63,7 +63,7 @@ const httpsServer = https.createServer(options, app)
 
 const PORT = process.env.PORT;
 const HOST_IP = process.env.HOST_IP;
-const DEVICE_IP = process.env.DEVICE_IP;
+
 httpsServer.listen(PORT, () => {
   console.log('listening on port: ' + PORT)
 })
@@ -225,7 +225,6 @@ peers.on('connection', async socket => {
   // })
 
   socket.on('transport-recv-connect', async ({ dtlsParameters }) => {
-    console.log("=====================================::")
     const consumerTransport = webRTCTransport.find(item => item.id == socket.id).consumerTransport
     await consumerTransport.connect({ dtlsParameters })
   })
@@ -321,13 +320,10 @@ peers.on('connection', async socket => {
 
   socket.on("link-stream", async (data) => {
     const { producer, transport } = await direcLink(router, data)
-    // console.log('prod,tran',producer,transport);
-    
-    if (!producers.has(data.channelName)) {
-      producers.set(data.channelName, [])
-      // startRecord(producer, data.slug, socket.id)
+    if (!producers.has(data.slug)) {
+      producers.set(data.slug, [])
     }
-    producers.get(data.channelName).push(
+    producers.get(data.slug).push(
       {
         slug: data.slug,
         id: data.id,
@@ -363,7 +359,6 @@ setInterval(async () => {
     });
 
   }
-
 
   Promise.all(promises)
   .then(() => {
