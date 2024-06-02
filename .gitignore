@@ -1,5 +1,4 @@
 **/.env
-**/bundle.js
 **/*.pem
 node_modules/
-hls/
+hls/*/
