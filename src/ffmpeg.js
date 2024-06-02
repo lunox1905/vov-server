@@ -6,8 +6,7 @@ const path = require("path")
 const Logger = require('./logger.js')
 const fs = require('fs');
 // console.log('path', path.resolve('../files'));
-const RECORD_FILE_LOCATION_PATH = process.env.RECORD_FILE_LOCATION_PATH || path.resolve('../server/files');
-
+const RECORD_FILE_LOCATION_PATH = process.env.RECORD_FILE_LOCATION_PATH || path.resolve('../vov-server/files');
 const myOS = getOS()
 module.exports = class FFmpeg {
   constructor(options) {
@@ -30,7 +29,6 @@ module.exports = class FFmpeg {
     const sdpString = createSdpText(this._rtpParameters);
     const sdpStream = convertStringToStream(sdpString);
 
-    console.log('createProcess() [sdpString:%s]', sdpString);
     this._process = child_process.spawn('ffmpeg', this._commandArgs);
 
     if (this._process.stderr) {
@@ -42,26 +40,26 @@ module.exports = class FFmpeg {
       );
     }
 
-    if (this._process.stdout) {
-      this._process.stdout.setEncoding('utf-8');
+    // if (this._process.stdout) {
+    //   this._process.stdout.setEncoding('utf-8');
 
-      this._process.stdout.on('data', data =>
-        // console.log('ffmpeg::process::data [data:%o]', data)
-        { this.Logger.info(`data ${data}`) }
-      );
-    }
-    this._process.on('message', message =>
-      console.log('ffmpeg::process::message [message:%o]', message)
-    );
+    //   this._process.stdout.on('data', data =>
+    //     // console.log('ffmpeg::process::data [data:%o]', data)
+    //     { this.Logger.info(`data ${data}`) }
+    //   );
+    // }
+    // this._process.on('message', message =>
+    //   console.log('ffmpeg::process::message [message:%o]', message)
+    // );
 
-    this._process.on('error', error =>
-      console.error('ffmpeg::process::error [error:%o]', error)
-    );
+    // this._process.on('error', error =>
+    //   console.error('ffmpeg::process::error [error:%o]', error)
+    // );
 
-    this._process.once('close', () => {
-      console.log('ffmpeg::process::close');
-      this._observer.emit('process-close');
-    });
+    // this._process.once('close', () => {
+    //   console.log('ffmpeg::process::close');
+    //   this._observer.emit('process-close');
+    // });
 
     sdpStream.on('error', error =>
       console.error('sdpStream::error [error:%o]', error)
@@ -112,7 +110,6 @@ module.exports = class FFmpeg {
       else {
         folderPath = `${RECORD_FILE_LOCATION_PATH}/hls/${this._rtpParameters.fileName}`
       }
-
       fs.mkdir(folderPath, (err) => {
         if (err) {
           // Handle the error if the folder creation failed
