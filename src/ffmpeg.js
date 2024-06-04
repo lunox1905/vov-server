@@ -142,7 +142,7 @@ module.exports = class FFmpeg {
   get _hlsArgs() {
     return [
       '-hls_time', '1',           
-      '-hls_list_size', '5',       
+      '-hls_list_size', '3',       
       '-start_number', '1',       
       '-f', 'hls',    
       '-hls_flags', 'delete_segments+append_list'           
