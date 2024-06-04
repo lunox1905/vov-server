@@ -16,14 +16,6 @@ const {
 } = require('./port');
 const { ppid } = require('process');
 const managerProducers = require('./managerProducers')
-slugify('some string', {
-  replacement: '-',  
-  remove: undefined,
-  lower: true,      
-  strict: false,    
-  locale: 'vi',    
-  trim: true  
-})
 
 app.use(cors("*"))
 app.use('/play', express.static('../client/public'))
@@ -37,7 +29,7 @@ app.use('/playhls', (request, response) => {
   let filePath = ""
   var filePathOption1 = path.resolve(`../vov-server/files/hls/${base}/${url}`);
   var filePathOption2 = path.resolve(`../vov-server/files/hls/${extractBase}/${url}`)
-  console.log(filePathOption2)
+
   if (fs.existsSync(filePathOption1)) {
       filePath = filePathOption1
   }
@@ -46,22 +38,22 @@ app.use('/playhls', (request, response) => {
   }
 
   fs.readFile(filePath, function (error, content) {
-      response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
-      if (error) {
-          if (error.code == 'ENOENT') {
-              fs.readFile('./404.html', function (error, content) {
-                  response.end(content, 'utf-8');
-              });
-          }
-          else {
-              response.writeHead(500);
-              response.end(' error: ' + error.code + ' ..\n');
-              response.end();
-          }
+    response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
+    if (error) {
+      if (error.code == 'ENOENT') {
+          fs.readFile('./404.html', function (error, content) {
+              response.end(content, 'utf-8');
+          });
       }
       else {
-          response.end(content, 'utf-8');
+          response.writeHead(500);
+          response.end(' error: ' + error.code + ' ..\n');
+          response.end();
       }
+    }
+    else {
+        response.end(content, 'utf-8');
+    }
   });
 })
 
@@ -165,6 +157,17 @@ const createPlain = async () => {
   return streamTransport;
 }
 router = createWorker()
+
+const createSlug = (name) => {
+  return slugify(name, {
+    replacement: '-',  
+    remove: undefined,
+    lower: false,      
+    strict: false,    
+    locale: 'vi',    
+    trim: true  
+  })
+}
 
 const getProducer = (channelName) => {
   if (!producers.has(channelName) || producers.get(channelName).length==0) {
@@ -337,12 +340,13 @@ peers.on('connection', async socket => {
       producers.set(data.name, [])
     }
     let isMainInput = false;
+    const slug = createSlug(data.name)
     if(!producers.has(data.name) || !producers.get(data.name).find(item => item.isActive === true)) {
-      startRecord(producer, slugify(data.name), socket.id)
+      startRecord(producer, slug, socket.id)
       isMainInput = true;
     }
     const newData = {
-      slug: slugify(data.name),
+      slug: slug,
       name: data.name,
       id: producer.id,
       uid: data.uid,
@@ -363,12 +367,13 @@ peers.on('connection', async socket => {
       producers.set(data.name, [])
     }
     let isMainInput = false;
-    if(!producers.has(data.name) || producers.get(data.name).length === 0) {
+    if (!producers.has(data.name) || producers.get(data.name).length === 0) {
       isMainInput = true;
     }
+    const slug = createSlug(data.name)
     producers.get(data.name).push(
       {
-        slug: slugify(data.name),
+        slug,
         name: data.name,
         id: producer.id,
         note: data.note,
@@ -379,10 +384,8 @@ peers.on('connection', async socket => {
         isMainInput,
       }
     )
-  } )
-
+  })
 })
-
 
 setInterval(async () => {
   const promises = [];
@@ -404,9 +407,6 @@ setInterval(async () => {
             }
           }
         }));
-      }
-      if (item.isStop === true) {
-
       }
     });
     producers.set(key, value);
@@ -437,9 +437,8 @@ setInterval(async () => {
       })
     }
   })
-  }, 1000)
+}, 1000)
  
-
 const createWebRtcTransport = async (callback) => {
   try {
     const webRtcTransport_options = {
@@ -453,9 +452,7 @@ const createWebRtcTransport = async (callback) => {
       enableTcp: true,
       preferUdp: true,
     }
-
     let transport = await router.createWebRtcTransport(webRtcTransport_options);
-
     transport.on('dtlsstatechange', dtlsState => {
       if (dtlsState === 'closed') {
         transport.close()
@@ -474,7 +471,6 @@ const createWebRtcTransport = async (callback) => {
         dtlsParameters: transport.dtlsParameters,
       }
     })
-
     return transport;
   } catch (error) {
     console.log(error)
@@ -488,7 +484,6 @@ const createWebRtcTransport = async (callback) => {
 
 const startRecord = async (producer, channelSlug, socketId) => {
   let recordInfo = await publishProducerRtpStream(producer);
-
   recordInfo.fileName = channelSlug + "-hls";
   const options = {
     "rtpParameters": recordInfo,
@@ -499,7 +494,6 @@ const startRecord = async (producer, channelSlug, socketId) => {
 
 const publishProducerRtpStream = async (producer) => {
   const rtpTransportConfig = config.plainRtpTransport;
-
   const rtpTransport = await router.createPlainTransport(rtpTransportConfig)
   const remoteRtpPort = await getPort();
 
