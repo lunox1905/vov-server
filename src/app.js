@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require("cors");
 const { Server } = require('socket.io');
 const mediasoup = require('mediasoup');
+const slugify = require('slugify')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const app = express();
 const config = require('./config');
@@ -14,11 +15,21 @@ const {
   getPort,
 } = require('./port');
 const { ppid } = require('process');
+const managerProducers = require('./managerProducers')
+slugify('some string', {
+  replacement: '-',  
+  remove: undefined,
+  lower: true,      
+  strict: false,    
+  locale: 'vi',    
+  trim: true  
+})
 
 app.use(cors("*"))
 app.use('/play', express.static('../client/public'))
 app.use('/webplay', express.static('../webclient/src'))
 
+let amountPlayWithHls = 0;
 app.use('/playhls', (request, response) => {
   const url = request.url.substring(request.url.lastIndexOf('/') + 1);
   const base = path.basename(url, path.extname(url))
@@ -26,7 +37,7 @@ app.use('/playhls', (request, response) => {
   let filePath = ""
   var filePathOption1 = path.resolve(`../vov-server/files/hls/${base}/${url}`);
   var filePathOption2 = path.resolve(`../vov-server/files/hls/${extractBase}/${url}`)
-
+  console.log(filePathOption2)
   if (fs.existsSync(filePathOption1)) {
       filePath = filePathOption1
   }
@@ -121,6 +132,7 @@ const mediaCodecs = [
   },
 ]
 
+managerProducers(peers, producers);
 
 const createWorker = async () => {
   worker = await mediasoup.createWorker({
@@ -154,11 +166,33 @@ const createPlain = async () => {
 }
 router = createWorker()
 
-const getProducer = (channelSlug) => {
-  if (!producers.has(channelSlug) || producers.get(channelSlug).length==0) {
+const getProducer = (channelName) => {
+  if (!producers.has(channelName) || producers.get(channelName).length==0) {
     return null
   }
-  return producers.get(channelSlug)[0]
+  const listProcder = producers.get(channelName)
+  return listProcder.find(item => item.isActive === true);
+}
+
+const getProducerList = (channelName) => {
+  if (!producers.has(channelName) || producers.get(channelName).length==0) {
+    return null
+  }
+  return producers.get(channelName)
+}
+
+const addProducer = (data) => {
+  const listPro = producers.get(data.name);
+  let isExits = false;
+  for(let i = 0; i < listPro.length; i++) {
+    if(listPro[i].uid === data.uid) {
+      listPro[i] = data;
+      isExits = true;
+    }
+  }
+  if(!isExits) {
+    producers.get(data.name).push(data)
+  }
 }
 
 // const getProducerList = () => {
@@ -229,18 +263,16 @@ peers.on('connection', async socket => {
     await consumerTransport.connect({ dtlsParameters })
   })
 
-  socket.on('consume', async ({ rtpCapabilities, channelSlug }, callback) => {
+  socket.on('consume', async ({ rtpCapabilities, channelName }, callback) => {
     try {
-      if (!channelSlug) {
-        throw new Error(`Invalid channel:${channelSlug}`)
+      if (!channelName) {
+        throw new Error(`Invalid channel:${channelName}`)
       }
-      socket.join(channelSlug);
-      let producer;
-      if (producers.get(channelSlug) && producers.get(channelSlug).length > 0) {
-        producer = producers.get(channelSlug)[0].producer;
-      }
+      socket.join(channelName);
+      console.log("=============", producers)
+      let producer = getProducer(channelName).producer;
       if (!producer) {
-        throw new Error(`Cannot find producer for channel ${channelSlug}`)
+        throw new Error(`Cannot find producer for channel ${channelName}`)
       }
       if (router.canConsume({
         producerId: producer.id,
@@ -263,6 +295,7 @@ peers.on('connection', async socket => {
         callback({ params })
       }
     } catch (error) {
+      console.log(error)
       callback({
         params: {
           error: error
@@ -301,79 +334,106 @@ peers.on('connection', async socket => {
     // } else {
     //   producers.push({ channelName: data.channelName, slug: data.slug, id: data.id, producer });
     // }
-    if (!producers.has(data.slug)) {
-      producers.set(data.slug, [])
+    if (!producers.has(data.name)) {
+      producers.set(data.name, [])
     }
-    if(!producers.has(data.slug) || producers.get(data.slug).length === 0) {
-      startRecord(producer, data.slug, socket.id)
+    let isMainInput = false;
+    if(!producers.has(data.name) || !producers.get(data.name).find(item => item.isActive === true)) {
+      startRecord(producer, slugify(data.name), socket.id)
+      isMainInput = true;
     }
-    producers.get(data.slug).push(
-      {
-        slug: data.slug,
-        id: data.id,
-        producer: producer
-      }
-    )
-    console.log('Producers', producers);
+    const newData = {
+      slug: slugify(data.name),
+      name: data.name,
+      id: producer.id,
+      uid: data.uid,
+      producer: producer,
+      note: data.note,
+      transport: streamTransport,
+      port: streamTransport.tuple.localPort,
+      isActive: true,
+      isMainInput
+    }
+    addProducer(newData)
     callback(streamTransport.tuple.localPort)
   })
 
   socket.on("link-stream", async (data) => {
     const { producer, transport } = await direcLink(router, data)
-    if (!producers.has(data.slug)) {
-      producers.set(data.slug, [])
+    if (!producers.has(data.name)) {
+      producers.set(data.name, [])
     }
-    producers.get(data.slug).push(
+    let isMainInput = false;
+    if(!producers.has(data.name) || producers.get(data.name).length === 0) {
+      isMainInput = true;
+    }
+    producers.get(data.name).push(
       {
-        slug: data.slug,
-        id: data.id,
+        slug: slugify(data.name),
+        name: data.name,
+        id: producer.id,
+        note: data.note,
         producer: producer,
-        active: true
+        transport,
+        port: transport.tuple.localPort,
+        isActive: true,
+        isMainInput,
       }
     )
-    console.log('Producers', producers);
   } )
 
 })
 
 
 setInterval(async () => {
-  let countDelete = 0;
   const promises = [];
   const producerFails = [];
+  const producerDelete = [];
   for (let [key, value] of producers) {
     value.forEach(item => {
-      if (item.producer) {
+      if (item.isDelete === true) {
+        producerDelete.push(item.name)
+      }
+      if (item.producer && item.isActive === true) {
         promises.push(item.producer.getStats().then(stats => {
           if (!stats ||stats[0]?.bitrate === 0) {
-            item.isDelete = true;
-            countDelete += 1;
-            producerFails.push(item.slug)
-            peers.to(item.slug).emit('reconnect');
+            item.isActive = false;
+            producerFails.push({name: item.name, slug: item.slug, id: item.id})
+            peers.to(item.name).emit('reconnect');
             if (consumerTransport && !consumerTransport.closed) {
               consumerTransport.close();
             }
           }
         }));
       }
-    });
+      if (item.isStop === true) {
 
+      }
+    });
+    producers.set(key, value);
   }
 
   Promise.all(promises)
   .then(() => {
-    if (countDelete > 0) {
-      for (let [key, value] of producers) {
-        const newValue = value.filter(data => data.isDelete !== true);
-        producers.set(key, newValue);
-      }
+    if (producerDelete.length > 0) {
+      producerDelete.forEach(async item => {
+        const list_producer = getProducerList(item)
+        const pro = list_producer.find(item => item.isDelete === true)
+        await pro.producer.close();
+        await pro.transport.close();
+        const newValue = list_producer.filter(data => data.isDelete !== true);
+        producers.set(item, newValue);
+      })
     }
     if(producerFails.length > 0) {
-      producerFails.forEach(item => {
-        const data = getProducer(item)
-        console.log(data)
+      producerFails.forEach(async item => {
+        const data = getProducer(item.name)
+        const list_producer = getProducerList(item.name)
+        const pro = list_producer.find(producer => producer.id === item.id)
+        await pro.producer.close();
+        await pro.transport.close();
         if(data) {
-          startRecord(data.producer, item, data.socketId)
+          startRecord(data.producer, item.slug, data.socketId)
         }
       })
     }
