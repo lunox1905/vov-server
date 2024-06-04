@@ -82,6 +82,7 @@ let router
 let producerTransport
 let consumerTransport
 let producers = new Map()
+let uniqueStream=new Set()
 let producerFails = new Set();
 let consumers = []
 const peer = {};
@@ -159,7 +160,7 @@ const listProducers = () => {
       return {
         slug: item.slug,
         id: item.id,
-        producer_id:item.producer.id
+        producerID:item.producer.id
       }
     })
     // console.log('pair',value,prod_filter);
@@ -228,18 +229,27 @@ peers.on('connection', async socket => {
   })
 
   socket.on('consume', async ({ rtpCapabilities, producerID }, callback) => {
+    console.log("producerID",producerID)
     try {
       if (!producerID) {
         throw new Error(`ProducerID is empty`)
       }
       // socket.join(channelSlug);
-      
-      let producer ;
-      if (producers.get(channelSlug) && producers.get(channelSlug).length > 0) {
-        producer = producers.get(channelSlug)[0].producer;
-      }
+      let producer;
+      for (let [key, producers_ls] of Object.entries(producers)) {
+        const tuple = producers_ls.filter(item => {
+          console.log("compare",item.producer.id,producerID);
+          
+          return item.producer.id==producerID
+        })
+        if (tuple) {
+          producer = tuple.producer
+          console.log('Find producer',producer);          
+          break
+        }
+      }      
       if (!producer) {
-        throw new Error(`Cannot find producer for channel ${channelSlug}`)
+        throw new Error(`Error cannot find producer with producer ID ${ producerID}` );
       }
       if (router.canConsume({
         producerId: producer.id,
@@ -276,6 +286,12 @@ peers.on('connection', async socket => {
 
   // })
   socket.on('create-producer', async (data, callback) => {
+    if (! data) {
+      throw new Error ("Data is empty")
+    }
+    if (uniqueStream.has(data.slug)) {
+      throw new Error (`Slug must be unique and not null : ${data.slug}`)
+    }
     const streamTransport = await createPlain();
     const producer = await streamTransport.produce({
       kind: 'audio',
@@ -353,7 +369,7 @@ setInterval(async () => {
         const new_value = value.filter(item => item.active == true)
         producers.set(key, new_value)
       }
-      console.log('Producer heartbeat', listProducers());
+      // console.log('Producer heartbeat', listProducers());
       const active_streams=listProducers()
       io.emit("active-stream", {active_streams:active_streams})
 
