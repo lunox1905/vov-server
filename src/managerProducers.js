@@ -15,7 +15,13 @@ async function managerProducers(peers, producers) {
                 const streams = [];
                 value.forEach(item => {
                   streams.push({
-                    ...item
+                    name: item.name,
+                    id: item.id,
+                    uid: item.uid,
+                    note: item.note,
+                    port: item.port,
+                    isActive: item.isActive,
+                    isMainInput: item.isMainInput
                   })
                 });
                 results.push({

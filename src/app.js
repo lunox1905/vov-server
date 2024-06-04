@@ -269,7 +269,6 @@ peers.on('connection', async socket => {
         throw new Error(`Invalid channel:${channelName}`)
       }
       socket.join(channelName);
-      console.log("=============", producers)
       let producer = getProducer(channelName).producer;
       if (!producer) {
         throw new Error(`Cannot find producer for channel ${channelName}`)
