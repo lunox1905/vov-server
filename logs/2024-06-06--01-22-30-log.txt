@@ -1,0 +1,61 @@
+2024-06-05T18:22:31.072Z [error]: ffmpeg ffmpeg version 7.0-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (Rev5, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      59.  8.100 / 59.  8.100
+2024-06-05T18:22:31.074Z [error]: ffmpeg 
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+  libpostproc    58.  1.100 / 58.  1.100
+Splitting the commandline.
+Reading option '-loglevel' ... matched as option 'loglevel' (set logging level) with argument 'debug'.
+Reading option '-protocol_whitelist' ... matched as AVOption 'protocol_whitelist' with argument 'pipe,udp,rtp'.
+Reading option '-fflags' ... matched as AVOption 'fflags' with argument '+genpts'.
+Reading option '-f' ... matched as option 'f' (force container format (auto-detected otherwise)) with argument 'sdp'.
+Reading option '-i' ... matched as input url with argument 'pipe:0'.
+Reading option '-hls_time' ... matched as AVOption 'hls_time' with argument '1'.
+Reading option '-hls_list_size' ... matched as AVOption 'hls_list_size' with argument '3'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '1'.
+Reading option '-f' ... matched as option 'f' (force container format (auto-detected otherwise)) with argument 'hls'.
+Reading option '-hls_flags' ... matched as AVOption 'hls_flags' with argument 'delete_segments+append_list'.
+Reading option 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option loglevel (set logging level) with argument debug.
+Successfully parsed a group of options.
+Parsing a group of options: input url pipe:0.
+Applying option f (force container format (auto-detected otherwise)) with argument sdp.
+Successfully parsed a group of options.
+Opening an input file: pipe:0.
+[sdp @ 00000165a799fdc0] Opening 'pipe:0' for reading
+[sdp @ 00000165a799fdc0] audio codec set to: opus
+[sdp @ 00000165a799fdc0] audio samplerate set to: 48000
+[sdp @ 00000165a799fdc0] audio channels set to: 2
+
+2024-06-05T18:22:31.074Z [error]: ffmpeg [udp @ 00000165a79baa80] end receive buffer size reported is 393216
+
+2024-06-05T18:22:31.075Z [error]: ffmpeg [udp @ 00000165a79cadc0] end receive buffer size reported is 393216
+[sdp @ 00000165a799fdc0] setting jitter buffer size to 500
+
+2024-06-05T18:22:31.079Z [error]: ffmpeg [sdp @ 00000165a799fdc0] Before avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 nb_streams:1
+
+2024-06-05T18:22:31.079Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+

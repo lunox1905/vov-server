@@ -5,6 +5,8 @@ const { convertStringToStream ,getOS} = require('./utils.js');
 const path = require("path")
 const Logger = require('./logger.js')
 const fs = require('fs');
+const { removeDir,overwriteFolder } = require('./utils.js')
+
 // console.log('path', path.resolve('../files'));
 const RECORD_FILE_LOCATION_PATH = process.env.RECORD_FILE_LOCATION_PATH || path.resolve('../vov-server/files');
 const myOS = getOS()
@@ -110,24 +112,19 @@ module.exports = class FFmpeg {
       else {
         folderPath = `${RECORD_FILE_LOCATION_PATH}/hls/${this._rtpParameters.fileName}`
       }
-      fs.mkdir(folderPath, (err) => {
-        if (err) {
-          // Handle the error if the folder creation failed
-          console.error('Error creating folder:', err);
-        } else {
-          // Folder created successfully
-          console.log('Folder created successfully:', folderPath);
-        }
-      });
+      // overwriteFolder(folderPath)
+      if (fs.existsSync(folderPath)) {
+        console.log('Folder exists.');
+        fs.rmdirSync(folderPath, { recursive: true, force: true });
+      } 
+      fs.mkdirSync(folderPath);
       commandArgs = commandArgs.concat([
         `${folderPath}/${this._rtpParameters.fileName}.m3u8`
       ]);
     }
     // console.log('arg', commandArgs);
-
     return commandArgs;
   }
-
   get _audioArgs() {
     return [
       '-map',

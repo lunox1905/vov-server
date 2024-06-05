@@ -27,16 +27,15 @@ app.use('/playhls', (request, response) => {
   const base = path.basename(url, path.extname(url))
   const extractBase = base.substring(0, base.indexOf('-hls') + 4);
   let filePath = ""
-  var filePathOption1 = path.resolve(`../files/hls/${base}/${url}`);
-  var filePathOption2 = path.resolve(`../files/hls/${extractBase}/${url}`)
-
+  var filePathOption1 = path.resolve(`./files/hls/${base}/${url}`);
+  var filePathOption2 = path.resolve(`./files/hls/${extractBase}/${url}`)
+// console.log('option',filePathOption1,filePathOption2);
   if (fs.existsSync(filePathOption1)) {
     filePath = filePathOption1
   }
   else {
     filePath = filePathOption2
   }
-
   fs.readFile(filePath, function (error, content) {
     response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
     if (error) {
@@ -61,12 +60,10 @@ const options = {
   key: fs.readFileSync('./ssl/key.pem', 'utf-8'),
   cert: fs.readFileSync('./ssl/cert.pem', 'utf-8')
 }
-
 const httpsServer = https.createServer(options, app)
-
 const PORT = process.env.PORT;
 const HOST_IP = process.env.HOST_IP;
-const DEVICE_IP = process.env.DEVICE_IP;
+const BASE_URL=process.env.BASE_URL
 httpsServer.listen(PORT, () => {
   console.log('listening on port: ' + PORT)
 })
@@ -85,7 +82,8 @@ let router
 let producerTransport
 let consumerTransport
 let producers = new Map()
-let uniqueStream=new Set()
+let uniqueStream = new Set()
+let uniqueSlug=new Set()
 let producerFails = new Set();
 let consumers = []
 const peer = {};
@@ -174,8 +172,8 @@ const getProducer = (channelName) => {
   if (!producers.has(channelName) || producers.get(channelName).length==0) {
     return null
   }
-  const listProcder = producers.get(channelName)
-  return listProcder.find(item => item.isActive === true);
+  const listProducer = producers.get(channelName)
+  return listProducer.find(item => item.isActive === true);
 }
 
 const getProducerList = (channelName) => {
@@ -198,19 +196,6 @@ const addProducer = (data) => {
     producers.get(data.name).push(data)
   }
 }
-
-// const getProducerList = () => {
-//   return producers
-//   let producersList = {}
-//   for ([key, value] in producers) {
-
-//     producersList[key] = {
-//       id: value.id,
-//       slug: value.slug
-//     }
-//   }
-//   return producersList
-// }
 
 peers.on('connection', async socket => {
 
@@ -319,6 +304,7 @@ peers.on('connection', async socket => {
     if (uniqueStream.has(data.slug)) {
       throw new Error (`Slug must be unique and not null : ${data.slug}`)
     }
+    
     const streamTransport = await createPlain();
     const producer = await streamTransport.produce({
       kind: 'audio',
@@ -393,6 +379,28 @@ peers.on('connection', async socket => {
       }
     )
   })
+  socket.on("req_hls_link", data => {
+    const baseHLS = `${BASE_URL}/playhls`
+    if (!data.channel) {
+      console.log('Error require channel value , got', data.channel);
+      return
+    }
+    // console.log("prods",producers)
+    if (!producers.has(data.channel)||!producers.get(data.channel).length)
+    {
+      console.log("Producer is not available")
+      return
+    }
+    const hlsPath= path.resolve(`./files/hls/${data.channel}-hls`)
+    if (!fs.existsSync(hlsPath)) {
+      console.log('Error,cannot find hls path');
+    return
+    } 
+    socket.emit("res_hls_link", {
+      link: `${baseHLS}/${data.channel}-hls.m3u8`
+    }) 
+  })
+  
 })
 
 setInterval(async () => {
