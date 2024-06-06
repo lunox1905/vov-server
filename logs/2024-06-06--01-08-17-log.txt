@@ -1,0 +1,2051 @@
+2024-06-05T18:08:17.454Z [error]: ffmpeg ffmpeg version 7.0-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+  built with gcc 13.2.0 (Rev5, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+
+2024-06-05T18:08:17.458Z [error]: ffmpeg   libavutil      59.  8.100 / 59.  8.100
+  libavcodec     61.  3.100 / 61.  3.100
+  libavformat    61.  1.100 / 61.  1.100
+  libavdevice    61.  1.100 / 61.  1.100
+  libavfilter    10.  1.100 / 10.  1.100
+  libswscale      8.  1.100 /  8.  1.100
+  libswresample   5.  1.100 /  5.  1.100
+  libpostproc    58.  1.100 / 58.  1.100
+Splitting the commandline.
+Reading option '-loglevel' ... matched as option 'loglevel' (set logging level) with argument 'debug'.
+Reading option '-protocol_whitelist' ... matched as AVOption 'protocol_whitelist' with argument 'pipe,udp,rtp'.
+Reading option '-fflags' ... matched as AVOption 'fflags' with argument '+genpts'.
+Reading option '-f' ... matched as option 'f' (force container format (auto-detected otherwise)) with argument 'sdp'.
+Reading option '-i' ... matched as input url with argument 'pipe:0'.
+Reading option '-hls_time' ... matched as AVOption 'hls_time' with argument '1'.
+Reading option '-hls_list_size' ... matched as AVOption 'hls_list_size' with argument '3'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '1'.
+Reading option '-f' ... matched as option 'f' (force container format (auto-detected otherwise)) with argument 'hls'.
+Reading option '-hls_flags' ... matched as AVOption 'hls_flags' with argument 'delete_segments+append_list'.
+Reading option 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option loglevel (set logging level) with argument debug.
+Successfully parsed a group of options.
+Parsing a group of options: input url pipe:0.
+Applying option f (force container format (auto-detected otherwise)) with argument sdp.
+Successfully parsed a group of options.
+Opening an input file: pipe:0.
+[sdp @ 0000022e6ddc7c80] Opening 'pipe:0' for reading
+[sdp @ 0000022e6ddc7c80] audio codec set to: opus
+[sdp @ 0000022e6ddc7c80] audio samplerate set to: 48000
+[sdp @ 0000022e6ddc7c80] audio channels set to: 2
+
+2024-06-05T18:08:17.458Z [error]: ffmpeg [udp @ 0000022e6ddda9c0] end receive buffer size reported is 393216
+
+2024-06-05T18:08:17.459Z [error]: ffmpeg [udp @ 0000022e6ddead00] end receive buffer size reported is 393216
+[sdp @ 0000022e6ddc7c80] setting jitter buffer size to 500
+
+2024-06-05T18:08:17.464Z [error]: ffmpeg [sdp @ 0000022e6ddc7c80] Before avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 nb_streams:1
+
+2024-06-05T18:08:17.464Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+
+2024-06-05T18:08:18.693Z [error]: ffmpeg [sdp @ 0000022e6ddc7c80] All info found
+
+2024-06-05T18:08:18.694Z [error]: ffmpeg [sdp @ 0000022e6ddc7c80] After avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 frames:1
+Input #0, sdp, from 'pipe:0':
+  Metadata:
+    title           : FFmpeg
+  Duration: N/A, start: 0.000000, bitrate: N/A
+  Stream #0:0, 1, 1/48000: Audio: opus, 48000 Hz, stereo, fltp
+Successfully opened the file.
+Parsing a group of options: output url C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.
+Applying option f (force container format (auto-detected otherwise)) with argument hls.
+Successfully parsed a group of options.
+Opening an output file: C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.
+[out#0/hls @ 0000022e6de478c0] No explicit maps, mapping streams automatically...
+
+2024-06-05T18:08:18.694Z [error]: ffmpeg [aost#0:0/aac @ 0000022e6de236c0] Created audio stream from input stream 0:0
+
+2024-06-05T18:08:18.694Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Successfully opened the file.
+
+2024-06-05T18:08:18.694Z [error]: ffmpeg Stream mapping:
+  Stream #0:0 -> #0:0 (opus (native) -> aac (native))
+[aost#0:0/aac @ 0000022e6de236c0] Starting thread...
+
+2024-06-05T18:08:18.696Z [error]: ffmpeg [af#0:0 @ 0000022e6e13afc0] Starting thread...
+[aist#0:0/opus @ 0000022e6de47e40] [dec:opus @ 0000022e6e13b600] Starting thread...
+[in#0/sdp @ 0000022e6ddc7880] Starting thread...
+
+2024-06-05T18:08:18.697Z [error]: ffmpeg detected 16 logical cores
+
+2024-06-05T18:08:18.700Z [error]: ffmpeg [graph_0_in_0:0 @ 0000022e6de79600] 
+2024-06-05T18:08:18.701Z [error]: ffmpeg Setting 'time_base' to value '1/48000'
+[graph_0_in_0:0 @ 0000022e6de79600] Setting 'sample_rate' to value '48000'
+[graph_0_in_0:0 @ 0000022e6de79600] Setting 'sample_fmt' to value 'fltp'
+[graph_0_in_0:0 @ 0000022e6de79600] Setting 'channel_layout' to value 'stereo'
+[graph_0_in_0:0 @ 0000022e6de79600] tb:1/48000 samplefmt:fltp samplerate:48000 chlayout:stereo
+[format_out_0_0 @ 0000022e6de78a40] Setting 'sample_fmts' to value 'fltp'
+[format_out_0_0 @ 0000022e6de78a40] Setting 'sample_rates' to value '96000|88200|64000|48000|44100|32000|24000|22050|16000|12000|11025|8000|7350'
+
+2024-06-05T18:08:18.701Z [error]: ffmpeg [AVFilterGraph @ 0000022e6de53600] query_formats: 4 queried, 6 merged, 3 already done, 0 delayed
+
+2024-06-05T18:08:18.701Z [error]: ffmpeg Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 1024, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        fft_sr_ns_float_fma3 - type: fft_float, len: 512, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 128, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        fft_sr_ns_float_fma3 - type: fft_float, len: 64, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+
+2024-06-05T18:08:18.704Z [error]: ffmpeg [mpegts @ 0000022e6de8e940] frame size not set
+[mpegts @ 0000022e6de8e940] service 1 using PCR in pid=256, pcr_period=96ms
+[mpegts @ 0000022e6de8e940] muxrate VBR, sdt every 1073741822000 ms, pat/pmt every 1073741822000 ms
+
+2024-06-05T18:08:18.704Z [error]: ffmpeg [file @ 0000022e6e167600] Setting default whitelist 'file,crypto,data'
+Output #0, hls, to 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8':
+  Metadata:
+    title           : FFmpeg
+    encoder         : Lavf61.1.100
+  Stream #0:0, 0, 1/90000: Audio: aac (LC), 48000 Hz, stereo, fltp, delay 1024, 128 kb/s
+      Metadata:
+        encoder         : Lavc61.3.100 aac
+[out#0/hls @ 0000022e6de478c0] Starting thread...
+
+2024-06-05T18:08:18.704Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.02
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.0213333 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.0426667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.064 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.0853333 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.106667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.128 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.149333 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.18
+
+2024-06-05T18:08:18.704Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.170667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.192 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.213333 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.234667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.714Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.256 queue head -1 ts N/A
+
+2024-06-05T18:08:18.718Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.277333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.719Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.298667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.720Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.32
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:18.720Z [error]: ffmpeg sq: receive 0 ts 0.32 queue head -1 ts N/A
+
+2024-06-05T18:08:18.721Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.34
+
+2024-06-05T18:08:18.721Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.341333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.722Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.38
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:18.722Z [error]: ffmpeg sq: receive 0 ts 0.362667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.723Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.384 queue head -1 ts N/A
+
+2024-06-05T18:08:18.725Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.42
+
+2024-06-05T18:08:18.725Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.405333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.726Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:18.726Z [error]: ffmpeg sq: send 0 ts 0.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.426667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.727Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:18.727Z [error]: ffmpeg  sq: send 0 ts 0.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.448 queue head -1 ts N/A
+
+2024-06-05T18:08:18.728Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.469333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.729Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.490667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.730Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.52
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:18.730Z [error]: ffmpeg sq: receive 0 ts 0.512 queue head -1 ts N/A
+
+2024-06-05T18:08:18.731Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.54
+
+2024-06-05T18:08:18.732Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.533333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.742Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.554667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.775Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.576 queue head -1 ts N/A
+
+2024-06-05T18:08:18.789Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.597333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.806Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.62
+
+2024-06-05T18:08:18.807Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.618667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.64 queue head -1 ts N/A
+
+2024-06-05T18:08:18.837Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.66
+
+2024-06-05T18:08:18.865Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.661333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.880Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.682667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.896Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.704 queue head -1 ts N/A
+
+2024-06-05T18:08:18.910Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.74
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:18.911Z [error]: ffmpeg sq: receive 0 ts 0.725333 queue head -1 ts N/A
+
+2024-06-05T18:08:18.943Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.746667 queue head -1 ts N/A
+
+2024-06-05T18:08:18.959Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.768 queue head -1 ts N/A
+
+2024-06-05T18:08:18.988Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.789333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.003Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.810667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.021Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.84
+
+2024-06-05T18:08:19.021Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.832 queue head -1 ts N/A
+
+2024-06-05T18:08:19.050Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.853333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.065Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.874667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.095Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.896 queue head -1 ts N/A
+
+2024-06-05T18:08:19.111Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.92
+
+2024-06-05T18:08:19.111Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.917333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.125Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.938667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.126Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.96 queue head -1 ts N/A
+
+2024-06-05T18:08:19.156Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 0.98
+
+2024-06-05T18:08:19.171Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 0.981333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.202Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.002667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.216Z [error]: ffmpeg size=N/A time=00:00:00.96 bitrate=N/A speed=1.85x    
+2024-06-05T18:08:19.217Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.04
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:19.217Z [error]: ffmpeg  sq: receive 0 ts 1.024 queue head -1 ts N/A
+
+2024-06-05T18:08:19.233Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.045333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.234Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls1.ts' for writing
+
+2024-06-05T18:08:19.234Z [error]: ffmpeg [file @ 0000022e6e168600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:19.235Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18048 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:19.235Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e167d00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:19.235Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:1
+
+2024-06-05T18:08:19.235Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 126 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:19.263Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.066667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.280Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:19.280Z [error]: ffmpeg  sq: send 0 ts 1.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.088 queue head -1 ts N/A
+
+2024-06-05T18:08:19.295Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.109333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.326Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.14
+
+2024-06-05T18:08:19.327Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.130667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.343Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.152 queue head -1 ts N/A
+
+2024-06-05T18:08:19.359Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:19.359Z [error]: ffmpeg sq: send 0 ts 1.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.173333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.390Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.194667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.405Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.216 queue head -1 ts N/A
+
+2024-06-05T18:08:19.435Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.237333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.452Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.258667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.452Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.28 queue head -1 ts N/A
+
+2024-06-05T18:08:19.469Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.3
+
+2024-06-05T18:08:19.499Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.301333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.515Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.322667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.530Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.36
+
+2024-06-05T18:08:19.531Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.344 queue head -1 ts N/A
+
+2024-06-05T18:08:19.562Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.365333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.579Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.386667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.608Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.408 queue head -1 ts N/A
+
+2024-06-05T18:08:19.624Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.429333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.639Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.450667 queue head -1 ts N/A
+2024-06-05T18:08:19.640Z [error]: ffmpeg 
+
+2024-06-05T18:08:19.670Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.472 queue head -1 ts N/A
+
+2024-06-05T18:08:19.685Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.493333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.700Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.514667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.730Z [error]: ffmpeg size=N/A time=00:00:01.47 bitrate=N/A speed=1.42x    
+2024-06-05T18:08:19.731Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.536 queue head -1 ts N/A
+
+2024-06-05T18:08:19.747Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.557333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.777Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.578667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.777Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.6 queue head -1 ts N/A
+
+2024-06-05T18:08:19.793Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.62
+
+2024-06-05T18:08:19.808Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.621333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.839Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.642667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.855Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.664 queue head -1 ts N/A
+
+2024-06-05T18:08:19.885Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.685333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.901Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.706667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.916Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.728 queue head -1 ts N/A
+
+2024-06-05T18:08:19.948Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.749333 queue head -1 ts N/A
+
+2024-06-05T18:08:19.964Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.770667 queue head -1 ts N/A
+
+2024-06-05T18:08:19.978Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.792 queue head -1 ts N/A
+
+2024-06-05T18:08:20.010Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.813333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.025Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.834667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.044Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.856 queue head -1 ts N/A
+
+2024-06-05T18:08:20.073Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.877333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.089Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.898667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:20.089Z [error]: ffmpeg sq: send 0 ts 1.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.92 queue head -1 ts N/A
+
+2024-06-05T18:08:20.119Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.94
+
+2024-06-05T18:08:20.135Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.941333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.151Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 1.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.962667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.183Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 1.984 queue head -1 ts N/A
+
+2024-06-05T18:08:20.199Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.005333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.215Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.026667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.250Z [error]: ffmpeg size=N/A time=00:00:01.98 bitrate=N/A speed=1.28x    
+2024-06-05T18:08:20.251Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:20.251Z [error]: ffmpeg  sq: send 0 ts 2.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.048 queue head -1 ts N/A
+
+2024-06-05T18:08:20.252Z [error]: ffmpeg [hls @ 0000022e6ddd9300]
+2024-06-05T18:08:20.252Z [error]: ffmpeg  Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls2.ts' for writing
+[file @ 0000022e6e167900] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:20.253Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240]
+2024-06-05T18:08:20.253Z [error]: ffmpeg  Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+[hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e167600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:20.254Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:1
+
+2024-06-05T18:08:20.254Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 158 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:20.262Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.069333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.278Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.090667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.308Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.112 queue head -1 ts N/A
+
+2024-06-05T18:08:20.323Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.133333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.355Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.154667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.371Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.176 queue head -1 ts N/A
+
+2024-06-05T18:08:20.386Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.197333 queue head -1 ts N/A
+2024-06-05T18:08:20.386Z [error]: ffmpeg 
+
+2024-06-05T18:08:20.418Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.218667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.418Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.24 queue head -1 ts N/A
+
+2024-06-05T18:08:20.433Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.26
+
+2024-06-05T18:08:20.449Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.261333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.479Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.282667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.494Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.32
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:20.494Z [error]: ffmpeg sq: receive 0 ts 2.304 queue head -1 ts N/A
+
+2024-06-05T18:08:20.525Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.325333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.541Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.346667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.557Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.368 queue head -1 ts N/A
+
+2024-06-05T18:08:20.587Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.389333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.603Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.410667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.618Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.432 queue head -1 ts N/A
+
+2024-06-05T18:08:20.649Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.453333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.665Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.474667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.697Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.496 queue head -1 ts N/A
+
+2024-06-05T18:08:20.713Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.517333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.728Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.538667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.729Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.56 queue head -1 ts N/A
+
+2024-06-05T18:08:20.758Z [error]: ffmpeg size=N/A time=00:00:02.51 bitrate=N/A speed=1.22x    
+2024-06-05T18:08:20.759Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.58
+
+2024-06-05T18:08:20.774Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.581333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.790Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.602667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.822Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.624 queue head -1 ts N/A
+
+2024-06-05T18:08:20.837Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.645333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.853Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.666667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.885Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.688 queue head -1 ts N/A
+
+2024-06-05T18:08:20.902Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.709333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.917Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.730667 queue head -1 ts N/A
+
+2024-06-05T18:08:20.947Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.752 queue head -1 ts N/A
+
+2024-06-05T18:08:20.963Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.773333 queue head -1 ts N/A
+
+2024-06-05T18:08:20.993Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.794667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.009Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.816 queue head -1 ts N/A
+
+2024-06-05T18:08:21.024Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.837333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.055Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.858667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.055Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.88 queue head -1 ts N/A
+
+2024-06-05T18:08:21.071Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.9
+
+2024-06-05T18:08:21.087Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.901333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.118Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.922667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.134Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.944 queue head -1 ts N/A
+
+2024-06-05T18:08:21.165Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 2.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.965333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.181Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 2.986667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.196Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.008 queue head -1 ts N/A
+
+2024-06-05T18:08:21.226Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.029333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.255Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.050667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.256Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls3.ts' for writing
+
+2024-06-05T18:08:21.257Z [error]: ffmpeg [file @ 0000022e6e168100] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:21.257Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:21.258Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+
+2024-06-05T18:08:21.258Z [error]: ffmpeg [file @ 0000022e6e168700] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:21.258Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:1
+
+2024-06-05T18:08:21.258Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 190 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:21.272Z [error]: ffmpeg size=N/A time=00:00:03.00 bitrate=N/A speed=1.17x    [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.08
+
+2024-06-05T18:08:21.273Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.072 queue head -1 ts N/A
+
+2024-06-05T18:08:21.302Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.093333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.302Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.114667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.332Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.136 queue head -1 ts N/A
+
+2024-06-05T18:08:21.348Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.157333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.378Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.178667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.379Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.2 queue head -1 ts N/A
+
+2024-06-05T18:08:21.394Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.22
+
+2024-06-05T18:08:21.410Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.221333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.441Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.242667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.455Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.264 queue head -1 ts N/A
+
+2024-06-05T18:08:21.471Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.285333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.502Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.306667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.517Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.328 queue head -1 ts N/A
+
+2024-06-05T18:08:21.549Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.349333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.565Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.370667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.580Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.392 queue head -1 ts N/A
+
+2024-06-05T18:08:21.611Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.413333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.627Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.434667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.642Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.456 queue head -1 ts N/A
+
+2024-06-05T18:08:21.674Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.477333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.689Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.498667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.689Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.52 queue head -1 ts N/A
+
+2024-06-05T18:08:21.719Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.54
+
+2024-06-05T18:08:21.734Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.541333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.749Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.562667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.783Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.584 queue head -1 ts N/A
+
+2024-06-05T18:08:21.797Z [error]: ffmpeg size=N/A time=00:00:03.54 bitrate=N/A speed=1.14x    
+2024-06-05T18:08:21.799Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.605333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.813Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.626667 queue head -1 ts N/A
+2024-06-05T18:08:21.814Z [error]: ffmpeg 
+
+2024-06-05T18:08:21.846Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.648 queue head -1 ts N/A
+
+2024-06-05T18:08:21.862Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.68
+
+2024-06-05T18:08:21.862Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.669333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.877Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.690667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.909Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.72
+
+2024-06-05T18:08:21.909Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.712 queue head -1 ts N/A
+
+2024-06-05T18:08:21.926Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.733333 queue head -1 ts N/A
+
+2024-06-05T18:08:21.940Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.754667 queue head -1 ts N/A
+
+2024-06-05T18:08:21.971Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.776 queue head -1 ts N/A
+
+2024-06-05T18:08:21.986Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.797333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.017Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.818667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.017Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.84 queue head -1 ts N/A
+
+2024-06-05T18:08:22.033Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.86
+
+2024-06-05T18:08:22.048Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.861333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.078Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.882667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.094Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.904 queue head -1 ts N/A
+
+2024-06-05T18:08:22.126Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.925333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.141Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.946667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.157Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 3.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.968 queue head -1 ts N/A
+
+2024-06-05T18:08:22.188Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 3.989333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.204Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.010667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.220Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.032 queue head -1 ts N/A
+
+2024-06-05T18:08:22.252Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.053333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.252Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls4.ts' for writing
+[file @ 0000022e6e167600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:22.253Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:22.253Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e167b00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:22.253Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:2
+
+2024-06-05T18:08:22.254Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:22.268Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.074667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.283Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.096 queue head -1 ts N/A
+
+2024-06-05T18:08:22.312Z [error]: ffmpeg size=N/A time=00:00:04.05 bitrate=N/A speed=1.12x    
+2024-06-05T18:08:22.313Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.117333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.329Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.138667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.16
+
+2024-06-05T18:08:22.329Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.16 queue head -1 ts N/A
+
+2024-06-05T18:08:22.359Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.18
+
+2024-06-05T18:08:22.375Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.181333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.391Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.202667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.422Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.224 queue head -1 ts N/A
+
+2024-06-05T18:08:22.438Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.245333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.453Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.266667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.484Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.3
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:22.484Z [error]: ffmpeg sq: receive 0 ts 4.288 queue head -1 ts N/A
+
+2024-06-05T18:08:22.500Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.309333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.516Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.330667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.548Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.352 queue head -1 ts N/A
+
+2024-06-05T18:08:22.563Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.373333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.595Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.394667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.611Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.416 queue head -1 ts N/A
+
+2024-06-05T18:08:22.626Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.437333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.656Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:22.657Z [error]: ffmpeg  sq: send 0 ts 4.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.458667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.48 queue head -1 ts N/A
+
+2024-06-05T18:08:22.672Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.5
+
+2024-06-05T18:08:22.688Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.501333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.721Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.54
+
+2024-06-05T18:08:22.721Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.522667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.735Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.544 queue head -1 ts N/A
+
+2024-06-05T18:08:22.765Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.565333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.781Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.586667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.797Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.608 queue head -1 ts N/A
+
+2024-06-05T18:08:22.832Z [error]: ffmpeg size=N/A time=00:00:04.56 bitrate=N/A speed= 1.1x    [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.629333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.852Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.66
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:22.852Z [error]: ffmpeg  sq: receive 0 ts 4.650667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.878Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.68
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:22.878Z [error]: ffmpeg  sq: receive 0 ts 4.672 queue head -1 ts N/A
+
+2024-06-05T18:08:22.891Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.693333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.908Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.714667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.921Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.736 queue head -1 ts N/A
+
+2024-06-05T18:08:22.953Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.757333 queue head -1 ts N/A
+
+2024-06-05T18:08:22.969Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.778667 queue head -1 ts N/A
+
+2024-06-05T18:08:22.969Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.8 queue head -1 ts N/A
+
+2024-06-05T18:08:23.000Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.82
+
+2024-06-05T18:08:23.015Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.84
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:23.015Z [error]: ffmpeg sq: receive 0 ts 4.821333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.031Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.842667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.063Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.88
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:23.063Z [error]: ffmpeg  sq: receive 0 ts 4.864 queue head -1 ts N/A
+
+2024-06-05T18:08:23.079Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.885333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.095Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.906667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.128Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.928 queue head -1 ts N/A
+
+2024-06-05T18:08:23.142Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.949333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.159Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 4.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.970667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.190Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 4.992 queue head -1 ts N/A
+
+2024-06-05T18:08:23.206Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.013333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.221Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.034667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.252Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.056 queue head -1 ts N/A
+
+2024-06-05T18:08:23.253Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls5.ts' for writing
+[file @ 0000022e6e166d00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:23.254Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:23.254Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls1.ts
+
+2024-06-05T18:08:23.254Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e167800] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:23.254Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:3
+
+2024-06-05T18:08:23.254Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:23.267Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.077333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.298Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.098667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.298Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.12 queue head -1 ts N/A
+
+2024-06-05T18:08:23.314Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.14
+
+2024-06-05T18:08:23.331Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.16
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:23.331Z [error]: ffmpeg sq: receive 0 ts 5.141333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.345Z [error]: ffmpeg size=N/A time=00:00:05.09 bitrate=N/A speed= 1.1x    
+2024-06-05T18:08:23.362Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.162667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.377Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.184 queue head -1 ts N/A
+
+2024-06-05T18:08:23.393Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.205333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.425Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.24
+
+2024-06-05T18:08:23.425Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.226667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.441Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.248 queue head -1 ts N/A
+
+2024-06-05T18:08:23.455Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.269333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.490Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.290667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.502Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.312 queue head -1 ts N/A
+
+2024-06-05T18:08:23.532Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.34
+
+2024-06-05T18:08:23.533Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.333333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.548Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.354667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.562Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.38
+2024-06-05T18:08:23.563Z [error]: ffmpeg 
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.376 queue head -1 ts N/A
+
+2024-06-05T18:08:23.594Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.397333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.612Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.418667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.612Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.44 queue head -1 ts N/A
+
+2024-06-05T18:08:23.639Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.46
+
+2024-06-05T18:08:23.654Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.461333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.668Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.482667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.700Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.52
+
+2024-06-05T18:08:23.700Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.504 queue head -1 ts N/A
+
+2024-06-05T18:08:23.715Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.525333 queue head -1 ts N/A
+2024-06-05T18:08:23.715Z [error]: ffmpeg 
+
+2024-06-05T18:08:23.745Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.546667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.762Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.568 queue head -1 ts N/A
+
+2024-06-05T18:08:23.777Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.589333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.809Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.610667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.825Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.64
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:23.825Z [error]: ffmpeg  sq: receive 0 ts 5.632 queue head -1 ts N/A
+
+2024-06-05T18:08:23.840Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.653333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.855Z [error]: ffmpeg size=N/A time=00:00:05.61 bitrate=N/A speed=1.09x    
+2024-06-05T18:08:23.871Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.674667 queue head -1 ts N/A
+
+2024-06-05T18:08:23.887Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.696 queue head -1 ts N/A
+
+2024-06-05T18:08:23.903Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.717333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.934Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.738667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.76 queue head -1 ts N/A
+
+2024-06-05T18:08:23.949Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.78
+
+2024-06-05T18:08:23.981Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.781333 queue head -1 ts N/A
+
+2024-06-05T18:08:23.997Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.802667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.012Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.824 queue head -1 ts N/A
+
+2024-06-05T18:08:24.044Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.845333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.063Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.866667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.077Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.888 queue head -1 ts N/A
+
+2024-06-05T18:08:24.106Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.909333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.122Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.930667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.138Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.952 queue head -1 ts N/A
+
+2024-06-05T18:08:24.169Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 5.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.973333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.185Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 5.994667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.216Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.016 queue head -1 ts N/A
+
+2024-06-05T18:08:24.232Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.037333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.248Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.058667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.08 queue head -1 ts N/A
+
+2024-06-05T18:08:24.248Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls6.ts' for writing
+
+2024-06-05T18:08:24.248Z [error]: ffmpeg [file @ 0000022e6e167000] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:24.249Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:24.249Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls2.ts
+[hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+
+2024-06-05T18:08:24.249Z [error]: ffmpeg [file @ 0000022e6e167600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:24.249Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:4
+
+2024-06-05T18:08:24.249Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:24.277Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.1
+
+2024-06-05T18:08:24.293Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.101333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.309Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.122667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.340Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.144 queue head -1 ts N/A
+
+2024-06-05T18:08:24.355Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.165333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.370Z [error]: ffmpeg size=N/A time=00:00:06.12 bitrate=N/A speed=1.08x    
+2024-06-05T18:08:24.371Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.2
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:24.371Z [error]: ffmpeg sq: receive 0 ts 6.186667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.403Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.208 queue head -1 ts N/A
+
+2024-06-05T18:08:24.418Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.229333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.449Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.250667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.464Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.272 queue head -1 ts N/A
+
+2024-06-05T18:08:24.479Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.293333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.511Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.314667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.526Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.336 queue head -1 ts N/A
+
+2024-06-05T18:08:24.542Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.357333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.575Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.378667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.575Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.4 queue head -1 ts N/A
+
+2024-06-05T18:08:24.590Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.42
+
+2024-06-05T18:08:24.621Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.421333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.637Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.442667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.652Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.464 queue head -1 ts N/A
+
+2024-06-05T18:08:24.684Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.485333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.701Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:24.701Z [error]: ffmpeg  sq: send 0 ts 6.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.506667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.716Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.528 queue head -1 ts N/A
+
+2024-06-05T18:08:24.747Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.549333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.762Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.570667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.777Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.592 queue head -1 ts N/A
+
+2024-06-05T18:08:24.809Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.613333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.825Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.634667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.842Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.656 queue head -1 ts N/A
+
+2024-06-05T18:08:24.874Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.677333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.888Z [error]: ffmpeg size=N/A time=00:00:06.63 bitrate=N/A speed=1.07x    
+2024-06-05T18:08:24.889Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.698667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.889Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.72 queue head -1 ts N/A
+
+2024-06-05T18:08:24.919Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.74
+
+2024-06-05T18:08:24.934Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.741333 queue head -1 ts N/A
+
+2024-06-05T18:08:24.950Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.762667 queue head -1 ts N/A
+
+2024-06-05T18:08:24.981Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.784 queue head -1 ts N/A
+
+2024-06-05T18:08:24.996Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.805333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.012Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.826667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.044Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.848 queue head -1 ts N/A
+
+2024-06-05T18:08:25.059Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.869333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.090Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.890667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.106Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.912 queue head -1 ts N/A
+
+2024-06-05T18:08:25.121Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.933333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.152Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.954667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.168Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 6.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.976 queue head -1 ts N/A
+
+2024-06-05T18:08:25.184Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 6.997333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.214Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.018667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.215Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.04 queue head -1 ts N/A
+
+2024-06-05T18:08:25.229Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.06
+
+2024-06-05T18:08:25.261Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.061333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.261Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls7.ts' for writing
+[file @ 0000022e6e168400] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:25.262Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:25.262Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls3.ts
+
+2024-06-05T18:08:25.262Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e167200] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:25.263Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:5
+
+2024-06-05T18:08:25.263Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:25.276Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.082667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.292Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.104 queue head -1 ts N/A
+
+2024-06-05T18:08:25.324Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.125333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.341Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.146667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.355Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.168 queue head -1 ts N/A
+
+2024-06-05T18:08:25.387Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.2
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:25.387Z [error]: ffmpeg sq: receive 0 ts 7.189333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.402Z [error]: ffmpeg size=N/A time=00:00:07.14 bitrate=N/A speed=1.07x    
+2024-06-05T18:08:25.403Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.210667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.419Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.24
+
+2024-06-05T18:08:25.420Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.232 queue head -1 ts N/A
+
+2024-06-05T18:08:25.450Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.253333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.466Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.274667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.483Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.296 queue head -1 ts N/A
+
+2024-06-05T18:08:25.513Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.317333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.529Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.34
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:25.529Z [error]: ffmpeg sq: receive 0 ts 7.338667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.36 queue head -1 ts N/A
+
+2024-06-05T18:08:25.546Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.38
+
+2024-06-05T18:08:25.577Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.381333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.592Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.42
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:25.592Z [error]: ffmpeg sq: receive 0 ts 7.402667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.623Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.424 queue head -1 ts N/A
+
+2024-06-05T18:08:25.638Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.445333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.654Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.466667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.684Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.488 queue head -1 ts N/A
+
+2024-06-05T18:08:25.700Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.509333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.731Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.530667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.746Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.552 queue head -1 ts N/A
+
+2024-06-05T18:08:25.760Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.58
+
+2024-06-05T18:08:25.761Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.573333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.790Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.6
+
+2024-06-05T18:08:25.790Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.594667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.815Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.616 queue head -1 ts N/A
+
+2024-06-05T18:08:25.837Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.637333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.852Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.658667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.853Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.68 queue head -1 ts N/A
+
+2024-06-05T18:08:25.866Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.7
+
+2024-06-05T18:08:25.900Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.701333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.912Z [error]: ffmpeg size=N/A time=00:00:07.65 bitrate=N/A speed=1.06x    
+2024-06-05T18:08:25.915Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.74
+
+2024-06-05T18:08:25.915Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.722667 queue head -1 ts N/A
+
+2024-06-05T18:08:25.947Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.744 queue head -1 ts N/A
+
+2024-06-05T18:08:25.961Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.765333 queue head -1 ts N/A
+
+2024-06-05T18:08:25.991Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.786667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.005Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.808 queue head -1 ts N/A
+
+2024-06-05T18:08:26.021Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.84
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:26.022Z [error]: ffmpeg sq: receive 0 ts 7.829333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.036Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.850667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.067Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.872 queue head -1 ts N/A
+
+2024-06-05T18:08:26.082Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.893333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.113Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.914667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.129Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.936 queue head -1 ts N/A
+
+2024-06-05T18:08:26.145Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.957333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.176Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 7.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 7.978667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.177Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8 queue head -1 ts N/A
+
+2024-06-05T18:08:26.191Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.02
+
+2024-06-05T18:08:26.207Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.021333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.237Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.06
+
+2024-06-05T18:08:26.237Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.042667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.238Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls8.ts' for writing
+
+2024-06-05T18:08:26.238Z [error]: ffmpeg [file @ 0000022e6e167600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:26.238Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 17860 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:26.239Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls4.ts
+
+2024-06-05T18:08:26.239Z [error]: ffmpeg [hls @ 0000022e6ddd9300]
+2024-06-05T18:08:26.239Z [error]: ffmpeg  Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+[file @ 0000022e6e168600] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:26.239Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:6
+
+2024-06-05T18:08:26.240Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:26.253Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.08
+
+2024-06-05T18:08:26.254Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.064 queue head -1 ts N/A
+
+2024-06-05T18:08:26.284Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.085333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.299Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.106667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.314Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.128 queue head -1 ts N/A
+
+2024-06-05T18:08:26.346Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.149333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.361Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.170667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.391Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.192 queue head -1 ts N/A
+
+2024-06-05T18:08:26.406Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.213333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.422Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.234667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.437Z [error]: ffmpeg size=N/A time=00:00:08.19 bitrate=N/A speed=1.06x    
+2024-06-05T18:08:26.454Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.256 queue head -1 ts N/A
+
+2024-06-05T18:08:26.469Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.277333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.484Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.298667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.484Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.32 queue head -1 ts N/A
+
+2024-06-05T18:08:26.516Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.34
+
+2024-06-05T18:08:26.531Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.341333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.563Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.362667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.579Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.384 queue head -1 ts N/A
+
+2024-06-05T18:08:26.595Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.405333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.627Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.426667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.643Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.448 queue head -1 ts N/A
+
+2024-06-05T18:08:26.658Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.469333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.688Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.490667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.703Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.512 queue head -1 ts N/A
+
+2024-06-05T18:08:26.718Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.533333 queue head -1 ts N/A
+2024-06-05T18:08:26.719Z [error]: ffmpeg 
+
+2024-06-05T18:08:26.749Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.554667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.765Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.576 queue head -1 ts N/A
+
+2024-06-05T18:08:26.795Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.597333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.810Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.618667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.64 queue head -1 ts N/A
+
+2024-06-05T18:08:26.826Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.66
+
+2024-06-05T18:08:26.858Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.661333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.875Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.682667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.889Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.704 queue head -1 ts N/A
+
+2024-06-05T18:08:26.920Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.74
+
+2024-06-05T18:08:26.920Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.725333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.935Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.746667 queue head -1 ts N/A
+
+2024-06-05T18:08:26.951Z [error]: ffmpeg size=N/A time=00:00:08.70 bitrate=N/A speed=1.05x    
+2024-06-05T18:08:26.967Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.768 queue head -1 ts N/A
+
+2024-06-05T18:08:26.983Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.789333 queue head -1 ts N/A
+
+2024-06-05T18:08:26.999Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.810667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.030Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.832 queue head -1 ts N/A
+
+2024-06-05T18:08:27.046Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.853333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.060Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.874667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.091Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.9
+
+2024-06-05T18:08:27.092Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.896 queue head -1 ts N/A
+
+2024-06-05T18:08:27.108Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.917333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.137Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.938667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.137Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.96 queue head -1 ts N/A
+
+2024-06-05T18:08:27.154Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 8.98
+
+2024-06-05T18:08:27.169Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 8.981333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.200Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.002667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.217Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.024 queue head -1 ts N/A
+
+2024-06-05T18:08:27.232Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.045333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.232Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls9.ts' for writing
+[file @ 0000022e6e167b00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18236 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls5.ts
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg [file @ 0000022e6e167a00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:7
+
+2024-06-05T18:08:27.233Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 169 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:27.263Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.066667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.278Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.088 queue head -1 ts N/A
+
+2024-06-05T18:08:27.309Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.12
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.109333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.325Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.130667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.341Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.152 queue head -1 ts N/A
+
+2024-06-05T18:08:27.371Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.173333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.386Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.194667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.401Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.216 queue head -1 ts N/A
+
+2024-06-05T18:08:27.433Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.237333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.448Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.26
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:27.448Z [error]: ffmpeg  sq: receive 0 ts 9.258667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.28 queue head -1 ts N/A
+
+2024-06-05T18:08:27.463Z [error]: ffmpeg size=N/A time=00:00:09.23 bitrate=N/A speed=1.05x    
+2024-06-05T18:08:27.479Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.3
+
+2024-06-05T18:08:27.495Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.301333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.510Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.322667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.541Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.344 queue head -1 ts N/A
+
+2024-06-05T18:08:27.556Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.365333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.572Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.386667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.603Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.408 queue head -1 ts N/A
+
+2024-06-05T18:08:27.619Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.429333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.649Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.450667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.665Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.472 queue head -1 ts N/A
+
+2024-06-05T18:08:27.680Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.493333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.711Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.514667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.727Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.536 queue head -1 ts N/A
+
+2024-06-05T18:08:27.743Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.557333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.776Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.58
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.578667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.776Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.6 queue head -1 ts N/A
+
+2024-06-05T18:08:27.790Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.62
+
+2024-06-05T18:08:27.821Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.621333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.837Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.642667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.852Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.664 queue head -1 ts N/A
+
+2024-06-05T18:08:27.884Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.685333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.900Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.706667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.914Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.728 queue head -1 ts N/A
+
+2024-06-05T18:08:27.945Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.749333 queue head -1 ts N/A
+
+2024-06-05T18:08:27.961Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.770667 queue head -1 ts N/A
+
+2024-06-05T18:08:27.976Z [error]: ffmpeg size=N/A time=00:00:09.72 bitrate=N/A speed=1.05x    
+2024-06-05T18:08:27.992Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.792 queue head -1 ts N/A
+
+2024-06-05T18:08:28.007Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.813333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.022Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.834667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.055Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.856 queue head -1 ts N/A
+
+2024-06-05T18:08:28.070Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.877333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.100Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.9
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.898667 queue head -1 ts N/A
+[out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.92 queue head -1 ts N/A
+
+2024-06-05T18:08:28.117Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.94
+
+2024-06-05T18:08:28.131Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.96
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.941333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.161Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 9.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.962667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.178Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 9.984 queue head -1 ts N/A
+
+2024-06-05T18:08:28.192Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.005333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.221Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.026667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.237Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.048 queue head -1 ts N/A
+
+2024-06-05T18:08:28.238Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls10.ts' for writing
+
+2024-06-05T18:08:28.238Z [error]: ffmpeg [file @ 0000022e6e166f00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:28.239Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18048 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:28.239Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls6.ts
+
+2024-06-05T18:08:28.240Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+
+2024-06-05T18:08:28.240Z [error]: ffmpeg [file @ 0000022e6e168100] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:28.240Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:8
+
+2024-06-05T18:08:28.240Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 170 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:28.268Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.08
+
+2024-06-05T18:08:28.269Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.069333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.282Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.090667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.298Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.12
+
+2024-06-05T18:08:28.298Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.112 queue head -1 ts N/A
+
+2024-06-05T18:08:28.328Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.133333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.346Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.154667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.361Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.18
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:28.361Z [error]: ffmpeg sq: receive 0 ts 10.176 queue head -1 ts N/A
+
+2024-06-05T18:08:28.392Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.197333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.406Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.22
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.218667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.406Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.24 queue head -1 ts N/A
+
+2024-06-05T18:08:28.437Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.26
+
+2024-06-05T18:08:28.453Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.261333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.469Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.282667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.499Z [error]: ffmpeg size=N/A time=00:00:10.24 bitrate=N/A speed=1.04x    
+2024-06-05T18:08:28.500Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.304 queue head -1 ts N/A
+
+2024-06-05T18:08:28.515Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.325333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.547Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.346667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.562Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.38
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.368 queue head -1 ts N/A
+
+2024-06-05T18:08:28.577Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.4
+
+2024-06-05T18:08:28.577Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.389333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.609Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.410667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.625Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.432 queue head -1 ts N/A
+
+2024-06-05T18:08:28.640Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.453333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.671Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.474667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.687Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.496 queue head -1 ts N/A
+
+2024-06-05T18:08:28.719Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.517333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.734Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.54
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.538667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.735Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.56
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.56 queue head -1 ts N/A
+
+2024-06-05T18:08:28.750Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.58
+
+2024-06-05T18:08:28.782Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.6
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.581333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.796Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.62
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.602667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.811Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.64
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.624 queue head -1 ts N/A
+
+2024-06-05T18:08:28.842Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.66
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.645333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.858Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.68
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.666667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.887Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.7
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.688 queue head -1 ts N/A
+
+2024-06-05T18:08:28.903Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.72
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.709333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.919Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.74
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.730667 queue head -1 ts N/A
+
+2024-06-05T18:08:28.950Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.76
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.752 queue head -1 ts N/A
+
+2024-06-05T18:08:28.966Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.78
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.773333 queue head -1 ts N/A
+
+2024-06-05T18:08:28.981Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.8
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.794667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.014Z [error]: ffmpeg size=N/A time=00:00:10.75 bitrate=N/A speed=1.04x    
+2024-06-05T18:08:29.016Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.82
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.816 queue head -1 ts N/A
+
+2024-06-05T18:08:29.027Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.84
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.837333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.059Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.86
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.858667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.059Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.88
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.88 queue head -1 ts N/A
+
+2024-06-05T18:08:29.075Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.9
+
+2024-06-05T18:08:29.090Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.92
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.901333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.121Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.94
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.922667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.137Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.96
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:29.137Z [error]: ffmpeg sq: receive 0 ts 10.944 queue head -1 ts N/A
+
+2024-06-05T18:08:29.152Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 10.98
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 10.965333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.183Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11
+[out#0/hls @ 0000022e6de478c0] 
+2024-06-05T18:08:29.184Z [error]: ffmpeg sq: receive 0 ts 10.986667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.199Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.02
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.008 queue head -1 ts N/A
+
+2024-06-05T18:08:29.215Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.04
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.029333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.247Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.06
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.050667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.248Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls11.ts' for writing
+[file @ 0000022e6e166a00] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:29.249Z [error]: ffmpeg [AVIOContext @ 0000022e6de76240] Statistics: 18048 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:29.249Z [error]: ffmpeg [hls muxer @ 0000022e6de453c0] deleting old segment kenh1-hls7.ts
+
+2024-06-05T18:08:29.249Z [error]: ffmpeg [hls @ 0000022e6ddd9300] Opening 'C:\Users\ducng\repo\stream\vov-server\files\hls\kenh1-hls/kenh1-hls.m3u8.tmp' for writing
+
+2024-06-05T18:08:29.249Z [error]: ffmpeg [file @ 0000022e6e168100] Setting default whitelist 'file,crypto,data'
+
+2024-06-05T18:08:29.249Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:9
+[AVIOContext @ 0000022e6de76240] Statistics: 171 bytes written, 0 seeks, 1 writeouts
+
+2024-06-05T18:08:29.262Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.08
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.072 queue head -1 ts N/A
+
+2024-06-05T18:08:29.293Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.1
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.093333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.308Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.12
+[out#0/hls @ 0000022e6de478c0]
+2024-06-05T18:08:29.308Z [error]: ffmpeg  sq: receive 0 ts 11.114667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.323Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.14
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.136 queue head -1 ts N/A
+
+2024-06-05T18:08:29.354Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.16
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.157333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.370Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.18
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.178667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.370Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.2
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.2 queue head -1 ts N/A
+
+2024-06-05T18:08:29.385Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.22
+
+2024-06-05T18:08:29.416Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.24
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.221333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.432Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.26
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.242667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.462Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.28
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.264 queue head -1 ts N/A
+
+2024-06-05T18:08:29.479Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.3
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.285333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.494Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.32
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.306667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.524Z [error]: ffmpeg size=N/A time=00:00:11.26 bitrate=N/A speed=1.04x    
+2024-06-05T18:08:29.526Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.34
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.328 queue head -1 ts N/A
+
+2024-06-05T18:08:29.541Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.36
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.349333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.556Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.38
+
+2024-06-05T18:08:29.556Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.370667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.587Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.4
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.392 queue head -1 ts N/A
+
+2024-06-05T18:08:29.607Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.42
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.413333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.621Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.44
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.434667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.653Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.46
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.456 queue head -1 ts N/A
+
+2024-06-05T18:08:29.668Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.48
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.477333 queue head -1 ts N/A
+
+2024-06-05T18:08:29.698Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.5
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.498667 queue head -1 ts N/A
+
+2024-06-05T18:08:29.698Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.52
+[out#0/hls @ 0000022e6de478c0] sq: receive 0 ts 11.52 queue head -1 ts N/A
+
+2024-06-05T18:08:29.713Z [error]: ffmpeg [out#0/hls @ 0000022e6de478c0] sq: send 0 ts 11.54
+
