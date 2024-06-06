@@ -91,6 +91,7 @@ const peer = {};
 let webRTCTransport = []
 let processWriteHLS = {};
 let consumer;
+
 const mediaCodecs = [
   {
     kind: 'audio',
@@ -191,6 +192,9 @@ const addProducer = (data) => {
     if(listPro[i].uid === data.uid) {
       listPro[i] = data;
       isExits = true;
+    } 
+    if(listPro[i].isActive === false) {
+      listPro[i].isMainInput = false;
     }
   }
   if(!isExits) {
@@ -272,10 +276,11 @@ peers.on('connection', async socket => {
         throw new Error(`Invalid channel:${channelName}`)
       }
       socket.join(channelName);
-      let producer = getProducer(channelName).producer;
-      if (!producer) {
+      let data = getProducer(channelName);
+      if (!data) {
         throw new Error(`Cannot find producer for channel ${channelName}`)
       }
+      const producer = data.producer;
       if (router.canConsume({
         producerId: producer.id,
         rtpCapabilities
@@ -422,6 +427,7 @@ setInterval(async () => {
         await pro.transport.close();
         const newValue = list_producer.filter(data => data.isDelete !== true);
         producers.set(item, newValue);
+        peers.to('admin').emit('emit-delete-producer-sucess')
       })
     }
     if(producerFails.length > 0) {
