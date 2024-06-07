@@ -21,7 +21,7 @@ app.use(cors("*"))
 app.use('/play', express.static('../client/public'))
 app.use('/webplay', express.static('../webclient/src'))
 
-let amountPlayWithHls = 0;
+
 app.use('/playhls', (request, response) => {
   const url = request.url.substring(request.url.lastIndexOf('/') + 1);
   const base = path.basename(url, path.extname(url))
@@ -52,8 +52,7 @@ app.use('/playhls', (request, response) => {
       }
     }
     else {
-      console.log(content)
-        response.end(content, 'utf-8');
+      response.end(content, 'utf-8');
     }
   });
 })
@@ -92,6 +91,7 @@ const peer = {};
 let webRTCTransport = []
 let processWriteHLS = {};
 let consumer;
+let listPlayerHls = [];
 
 const mediaCodecs = [
   {
@@ -204,13 +204,13 @@ const addProducer = (data) => {
 }
 
 peers.on('connection', async socket => {
-
   socket.on('disconnect', () => {
     if (processWriteHLS[socket.id]) {
       processWriteHLS[socket.id].kill()
       delete processWriteHLS[socket.id]
     }
-    webRTCTransport = webRTCTransport.filter(item => item.id === socket.id);
+    webRTCTransport = webRTCTransport.filter(item => item.id !== socket.id);
+    listPlayerHls = listPlayerHls.filter(item => item !== socket.id)
     console.log('peer disconnected')
   })
 
@@ -227,6 +227,18 @@ peers.on('connection', async socket => {
     const rtpCapabilities = router.rtpCapabilities;
     callback({ rtpCapabilities })
   }
+
+  socket.on('info-dashboard', (callback) => {
+    const amountPlayerHls = listPlayerHls.length;
+    const amountPlayerRTC = webRTCTransport.length;
+    let amountChannel = 0;
+    let amountStream = 0;
+    for (let [key, value] of producers) {
+      amountChannel += 1;
+      amountStream += value.length;
+    }
+    callback({amountChannel, amountPlayerHls, amountPlayerRTC, amountStream})
+  })
 
   socket.on('createWebRtcTransport', async ({ sender }, callback) => {
     console.log(`Is this a sender request? ${sender}`)
@@ -245,6 +257,7 @@ peers.on('connection', async socket => {
           consumerTransport,
           id: socket.id
         })
+        console.log(webRTCTransport.length)
       }
     }
   })
@@ -254,7 +267,6 @@ peers.on('connection', async socket => {
   // })
 
   socket.on('transport-recv-connect', async ({ dtlsParameters }) => {
-    console.log("=====================================::")
     const consumerTransport = webRTCTransport.find(item => item.id == socket.id).consumerTransport
     await consumerTransport.connect({ dtlsParameters })
   })
@@ -406,7 +418,7 @@ peers.on('connection', async socket => {
       console.log('Error,cannot find hls path');
     return
     } 
-    console.log(`${baseHLS}/${folder}-hls.m3u8`)
+    listPlayerHls.push(socket.id)
     socket.emit("res_hls_link", {
       link: `${baseHLS}/${folder}-hls.m3u8`
     }) 
