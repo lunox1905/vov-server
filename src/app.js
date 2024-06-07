@@ -480,7 +480,7 @@ setInterval(async () => {
             list_producer[i].isMainInput = false;
           }
         }
-        producers.set(item, list_producer);
+        producers.set(item.name, list_producer);
         if(data) {
           startRecord(data.producer, item.slug, data.socketId)
         }
