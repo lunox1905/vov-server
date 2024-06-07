@@ -32,13 +32,15 @@ module.exports = class FFmpeg {
     const sdpStream = convertStringToStream(sdpString);
 
     this._process = child_process.spawn('ffmpeg', this._commandArgs);
-
+    const handleData = (data) => {
+      
+    } 
     if (this._process.stderr) {
       this._process.stderr.setEncoding('utf-8');
 
       this._process.stderr.on('data', data =>
         // console.log('ffmpeg::process::data [data:%o]', data)
-        {  this.Logger.error(`ffmpeg ${data}`)}
+        handleData(data)
       );
     }
 
