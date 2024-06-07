@@ -39,6 +39,7 @@ app.use('/playhls', (request, response) => {
   fs.readFile(filePath, function (error, content) {
     response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
     if (error) {
+      console.log(error)
       if (error.code == 'ENOENT') {
           fs.readFile('./404.html', function (error, content) {
               response.end(content, 'utf-8');
@@ -51,6 +52,7 @@ app.use('/playhls', (request, response) => {
       }
     }
     else {
+      console.log(content)
         response.end(content, 'utf-8');
     }
   });
@@ -376,6 +378,7 @@ peers.on('connection', async socket => {
         name: data.name,
         id: producer.id,
         note: data.note,
+        uid: data.uid,
         producer: producer,
         transport,
         port: transport.tuple.localPort,
@@ -383,6 +386,7 @@ peers.on('connection', async socket => {
         isMainInput,
       }
     )
+    peers.to('admin').emit('add-channel-directlink-success')
   })
   socket.on("req_hls_link", data => {
     const baseHLS = `${BASE_URL}/playhls`
@@ -396,13 +400,15 @@ peers.on('connection', async socket => {
       console.log("Producer is not available")
       return
     }
-    const hlsPath= path.resolve(`./files/hls/${data.channel}-hls`)
+    const folder = createSlug(data.channel);
+    const hlsPath= path.resolve(`./files/hls/${folder}-hls`)
     if (!fs.existsSync(hlsPath)) {
       console.log('Error,cannot find hls path');
     return
     } 
+    console.log(`${baseHLS}/${folder}-hls.m3u8`)
     socket.emit("res_hls_link", {
-      link: `${baseHLS}/${data.channel}-hls.m3u8`
+      link: `${baseHLS}/${folder}-hls.m3u8`
     }) 
   })
   

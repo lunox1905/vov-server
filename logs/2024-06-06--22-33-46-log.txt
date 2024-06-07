@@ -1,0 +1,721 @@
+2024-06-06T15:33:46.586Z [error]: ffmpeg ffmpeg version 2023-10-29-git-2532e832d2-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 12.2.0 (Rev10, Built by MSYS2 project)
+
+2024-06-06T15:33:46.588Z [error]: ffmpeg ffmpeg version 2023-10-29-git-2532e832d2-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 12.2.0 (Rev10, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-dxva2 --enable-d3d11va --enable-libvpl --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+
+2024-06-06T15:33:46.589Z [error]: ffmpeg ffmpeg version 2023-10-29-git-2532e832d2-essentials_build-www.gyan.dev Copyright (c) 2000-2023 the FFmpeg developers
+  built with gcc 12.2.0 (Rev10, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-dxva2 --enable-d3d11va --enable-libvpl --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+
+2024-06-06T15:33:46.590Z [error]: ffmpeg   configuration: --enable-gpl --enable-version3 --enable-static --pkg-config=pkgconf --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-dxva2 --enable-d3d11va --enable-libvpl --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+
+2024-06-06T15:33:46.590Z [error]: ffmpeg   libavutil      58. 30.100 / 58. 30.100
+  libavcodec     60. 32.102 / 60. 32.102
+  libavformat    60. 17.100 / 60. 17.100
+  libavdevice    60.  4.100 / 60.  4.100
+  libavfilter     9. 13.100 /  9. 13.100
+  libswscale      7.  6.100 /  7.  6.100
+  libswresample   4. 13.100 /  4. 13.100
+  libpostproc    57.  4.100 / 57.  4.100
+
+2024-06-06T15:33:46.590Z [error]: ffmpeg   libavutil      58. 30.100 / 58. 30.100
+  libavcodec     60. 32.102 / 60. 32.102
+  libavformat    60. 17.100 / 60. 17.100
+  libavdevice    60.  4.100 / 60.  4.100
+  libavfilter     9. 13.100 /  9. 13.100
+  libswscale      7.  6.100 /  7.  6.100
+  libswresample   4. 13.100 /  4. 13.100
+  libpostproc    57.  4.100 / 57.  4.100
+
+2024-06-06T15:33:46.591Z [error]: ffmpeg Splitting the commandline.
+Reading option '-loglevel' ... matched as option 'loglevel' (set logging level) with argument 'debug'.
+Reading option '-protocol_whitelist' ...
+2024-06-06T15:33:46.593Z [error]: ffmpeg   libavutil      58. 30.100 / 58. 30.100
+2024-06-06T15:33:46.593Z [error]: ffmpeg Splitting the commandline.
+Reading option '-loglevel' ... matched as option 'loglevel' (set logging level) with argument 'debug'.
+Reading option '-protocol_whitelist' ...
+2024-06-06T15:33:46.594Z [error]: ffmpeg 
+  libavcodec     60. 32.102 / 60. 32.102
+  libavformat    60. 17.100 / 60. 17.100
+  libavdevice    60.  4.100 / 60.  4.100
+  libavfilter     9. 13.100 /  9. 13.100
+  libswscale      7.  6.100 /  7.  6.100
+  libswresample   4. 13.100 /  4. 13.100
+  libpostproc    57.  4.100 / 57.  4.100
+
+2024-06-06T15:33:46.594Z [error]: ffmpeg Splitting the commandline.
+Reading option '-loglevel' ... matched as option 'loglevel' (set logging level) with argument 'debug'.
+Reading option '-protocol_whitelist' ...
+2024-06-06T15:33:46.622Z [error]: ffmpeg  matched as AVOption 'protocol_whitelist' with argument 'pipe,udp,rtp'.
+Reading option '-fflags' ...
+2024-06-06T15:33:46.623Z [error]: ffmpeg  matched as AVOption 'protocol_whitelist' with argument 'pipe,udp,rtp'.
+Reading option '-fflags' ...
+2024-06-06T15:33:46.623Z [error]: ffmpeg  matched as AVOption 'protocol_whitelist' with argument 'pipe,udp,rtp'.
+Reading option '-fflags' ...
+2024-06-06T15:33:46.629Z [error]: ffmpeg  matched as AVOption 'fflags' with argument '+genpts'.
+Reading option '-f' ... matched as option 'f' (force format) with argument 'sdp'.
+Reading option '-i' ... matched as output url with argument 'pipe:0'.
+2024-06-06T15:33:46.629Z [error]: ffmpeg  matched as AVOption 'fflags' with argument '+genpts'.
+Reading option '-f' ...
+2024-06-06T15:33:46.629Z [error]: ffmpeg 
+Reading option '-hls_time' ... matched as AVOption 'hls_time' with argument '1'.
+Reading option '-hls_list_size' ... matched as AVOption 'hls_list_size' with argument '3'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '1'.
+Reading option '-f' ... matched as option 'f' (force format) with argument 'hls'.
+Reading option '-hls_flags' ... matched as AVOption 'hls_flags' with argument 'delete_segments+append_list'.
+Reading option 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option loglevel (set logging level) with argument debug.
+Successfully parsed a group of options.
+Parsing a group of options: input url pipe:0.
+Applying option f (force format) with argument sdp.
+Successfully parsed a group of options.
+Opening an input file: pipe:0.
+
+2024-06-06T15:33:46.629Z [error]: ffmpeg  matched as AVOption 'fflags' with argument '+genpts'.
+Reading option '-f' ... matched as option 'f' (force format) with argument 'sdp'.
+Reading option '-i' ... matched as output url with argument 'pipe:0'.
+Reading option '-hls_time' ...
+2024-06-06T15:33:46.630Z [error]: ffmpeg  matched as option 'f' (force format) with argument 'sdp'.
+Reading option '-i' ... matched as output url with argument 'pipe:0'.
+Reading option '-hls_time' ... matched as AVOption 'hls_time' with argument '1'.
+Reading option '-hls_list_size' ... matched as AVOption 'hls_list_size' with argument '3'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '1'.
+Reading option '-f' ... matched as option 'f' (force format) with argument 'hls'.
+Reading option '-hls_flags' ... matched as AVOption 'hls_flags' with argument 'delete_segments+append_list'.
+Reading option 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-3-hls/Kenh-3-hls.m3u8' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option loglevel (set logging level) with argument debug.
+Successfully parsed a group of options.
+Parsing a group of options: input url pipe:0.
+Applying option f (force format) with argument sdp.
+Successfully parsed a group of options.
+Opening an input file: pipe:0.
+
+2024-06-06T15:33:46.630Z [error]: ffmpeg [sdp @ 000001740568bf80] Opening 'pipe:0' for reading
+
+2024-06-06T15:33:46.631Z [error]: ffmpeg  matched as AVOption 'hls_time' with argument '1'.
+Reading option '-hls_list_size' ... matched as AVOption 'hls_list_size' with argument '3'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '1'.
+Reading option '-f' ... matched as option 'f' (force format) with argument 'hls'.
+Reading option '-hls_flags' ... matched as AVOption 'hls_flags' with argument 'delete_segments+append_list'.
+Reading option 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option loglevel (set logging level) with argument debug.
+Successfully parsed a group of options.
+Parsing a group of options: input url pipe:0.
+Applying option f (force format) with argument sdp.
+Successfully parsed a group of options.
+Opening an input file: pipe:0.
+[sdp @ 000001e5c7d8bf80] Opening 'pipe:0' for reading
+
+2024-06-06T15:33:46.631Z [error]: ffmpeg [sdp @ 00000236171cbf80] Opening 'pipe:0' for reading
+
+2024-06-06T15:33:46.635Z [error]: ffmpeg [sdp @ 000001740568bf80] audio codec set to: opus
+
+2024-06-06T15:33:46.635Z [error]: ffmpeg [sdp @ 00000236171cbf80] audio codec set to: opus
+
+2024-06-06T15:33:46.635Z [error]: ffmpeg [sdp @ 000001e5c7d8bf80] audio codec set to: opus
+[sdp @ 000001e5c7d8bf80] audio samplerate set to: 48000
+[sdp @ 000001e5c7d8bf80] audio channels set to: 2
+
+2024-06-06T15:33:46.635Z [error]: ffmpeg [sdp @ 000001740568bf80] audio samplerate set to: 48000
+[sdp @ 000001740568bf80] audio channels set to: 2
+
+2024-06-06T15:33:46.636Z [error]: ffmpeg [sdp @ 00000236171cbf80] audio samplerate set to: 48000
+[sdp @ 00000236171cbf80] audio channels set to: 2
+
+2024-06-06T15:33:46.638Z [error]: ffmpeg [udp @ 000001740568d280] end receive buffer size reported is 393216
+
+2024-06-06T15:33:46.638Z [error]: ffmpeg [udp @ 000001e5c7d8d280] end receive buffer size reported is 393216
+
+2024-06-06T15:33:46.638Z [error]: ffmpeg [udp @ 00000236171cd280] end receive buffer size reported is 393216
+[udp @ 00000236171cd380] end receive buffer size reported is 393216
+[sdp @ 00000236171cbf80] setting jitter buffer size to 500
+
+2024-06-06T15:33:46.639Z [error]: ffmpeg [udp @ 000001740568d380] end receive buffer size reported is 393216
+[sdp @ 000001740568bf80] setting jitter buffer size to 500
+
+2024-06-06T15:33:46.639Z [error]: ffmpeg [udp @ 000001e5c7d8d380] end receive buffer size reported is 393216
+[sdp @ 000001e5c7d8bf80] setting jitter buffer size to 500
+
+2024-06-06T15:33:46.646Z [error]: ffmpeg [sdp @ 00000236171cbf80] Before avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 nb_streams:1
+
+2024-06-06T15:33:46.646Z [error]: ffmpeg [sdp @ 000001e5c7d8bf80] Before avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 nb_streams:1
+
+2024-06-06T15:33:46.647Z [error]: ffmpeg [sdp @ 000001740568bf80] Before avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 nb_streams:1
+
+2024-06-06T15:33:46.652Z [error]: ffmpeg For transform of length 120, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+
+2024-06-06T15:33:46.652Z [error]: ffmpeg For transform of length 120, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 60, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 4, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+
+2024-06-06T15:33:46.653Z [error]: ffmpeg For transform of length 120, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 60, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 4, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 240, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 120, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 8, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+    2: fft8_asm_float_sse3 - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+
+2024-06-06T15:33:46.653Z [error]: ffmpeg     3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 60, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 4, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 240, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 120, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 8, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+    2: fft8_asm_float_sse3 - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 480, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 240, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 16, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft16_asm_float_avx - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 960, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 480, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 32, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+
+2024-06-06T15:33:46.655Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 240, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 120, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 8, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+    2: fft8_asm_float_sse3 - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 480, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: 
+2024-06-06T15:33:46.655Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 480, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 240, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 16, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft16_asm_float_avx - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 960, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 480, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 32, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft32_asm_float_avx - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+
+2024-06-06T15:33:46.655Z [error]: ffmpeg     1: fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft32_asm_float_avx - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+
+2024-06-06T15:33:46.656Z [error]: ffmpeg mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 240, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 16, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft16_asm_float_avx - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 960, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 480, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 32, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft32_asm_float_avx - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+
+2024-06-06T15:33:57.491Z [error]: ffmpeg [sdp @ 000001e5c7d8bf80] After avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 frames:0
+
+2024-06-06T15:33:57.491Z [error]: ffmpeg [sdp @ 000001740568bf80] After avformat_find_stream_info() pos: 143 bytes read:143 seeks:0 frames:0
+Input #0, sdp, from 'pipe:0':
+  Metadata:
+    title           : FFmpeg
+  Duration: N/A, bitrate: N/A
+  Stream #0:0, 0, 1/48000: Audio: opus, 48000 Hz, stereo, fltp
+Successfully opened the file.
+Parsing a group of options: output url C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8.
+Applying option f (force format) with argument hls.
+Successfully parsed a group of options.
+Opening an output file: C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8.
+[out#0/hls @ 000001740568c440] No explicit maps, mapping streams automatically...
+
+2024-06-06T15:33:57.491Z [error]: ffmpeg Input #0, sdp, from 'pipe:0':
+  Metadata:
+    title           : FFmpeg
+  Duration: N/A, bitrate: N/A
+  Stream #0:0, 0, 1/48000: Audio: opus, 48000 Hz, stereo, fltp
+Successfully opened the file.
+Parsing a group of options: output url C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8.
+Applying option f (force format) with argument hls.
+Successfully parsed a group of options.
+Opening an output file: C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8.
+[out#0/hls @ 000001e5c7d8c440] No explicit maps, mapping streams automatically...
+
+2024-06-06T15:33:57.491Z [error]: ffmpeg [aost#0:0/aac @ 0000017405710bc0] Created audio stream from input stream 0:0
+
+2024-06-06T15:33:57.492Z [error]: ffmpeg [aost#0:0/aac @ 000001e5c7e10bc0] Created audio stream from input stream 0:0
+
+2024-06-06T15:33:57.492Z [error]: ffmpeg For transform of length 120, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: 
+2024-06-06T15:33:57.492Z [error]: ffmpeg For transform of length 120, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 60, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 4, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 240, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+2024-06-06T15:33:57.492Z [error]: ffmpeg mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 60, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 4, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 120, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 60, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft4_fwd_asm_float_sse2 - type: fft_float, len: 4, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 240, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 120, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 8, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+    2: fft8_asm_float_sse3 - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 480, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+2024-06-06T15:33:57.492Z [error]: ffmpeg 
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 120, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 8, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+    2: fft8_asm_float_sse3 - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 352
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 240, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 120, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft8_asm_float_avx - type: fft_float, len: 8, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 480, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 240, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 16, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft16_asm_float_avx - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+
+2024-06-06T15:33:57.492Z [error]: ffmpeg 
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 240, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 16, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft16_asm_float_avx - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 960, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+
+2024-06-06T15:33:57.492Z [error]: ffmpeg Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 480, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 240, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft16_asm_float_fma3 - type: fft_float, len: 16, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+For transform of length 960, inverse, mdct_float, flags: [aligned, out_of_place], found 6 matches:
+    1: mdct_inv_float_avx2 - type: mdct_float, len: [16, ∞], factors[2]: [2, any], flags: [aligned, out_of_place, inv_only], prio: 544
+    2: mdct_pfa_15xM_inv_float_c - type: mdct_float, len: [30, ∞], factors[2]: [15, any], flags: [unaligned, out_of_place, inv_only], prio: 304
+    3: mdct_pfa_5xM_inv_float_c - type: mdct_float, len: [10, ∞], factors[2]: [5, any], flags: [unaligned, out_of_place, inv_only], prio: 144
+    4: mdct_pfa_3xM_inv_float_c - type: mdct_float, len: [6, ∞], factors[2]: [3, any], flags: [unaligned, out_of_place, inv_only], prio: 112
+    5: mdct_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: 96
+    6: mdct_naive_inv_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, inv_only], prio: -130976
+For transform of length 480, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 32, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft32_asm_float_avx - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+
+2024-06-06T15:33:57.492Z [error]: ffmpeg For transform of length 480, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 1 matches:
+    1: fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: [60, ∞], factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 688
+For transform of length 32, inverse, fft_float, flags: [aligned, inplace, preshuf, asm_call], found 2 matches:
+    1: fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 512
+    2: fft32_asm_float_avx - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call], prio: 480
+Transform tree:
+    mdct_inv_float_avx2 - type: mdct_float, len: 960, factors[2]: [2, any], flags: [aligned, out_of_place, inv_only]
+        fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+
+2024-06-06T15:33:57.493Z [error]: ffmpeg         fft_pfa_15xM_asm_float_avx2 - type: fft_float, len: 480, factors[2]: [15, 2], flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+            fft32_asm_float_fma3 - type: fft_float, len: 32, factor: 2, flags: [aligned, inplace, out_of_place, preshuf, asm_call]
+Successfully opened the file.
+
+2024-06-06T15:33:57.493Z [error]: ffmpeg Successfully opened the file.
+Stream mapping:
+  Stream #0:0 -> #0:0 (opus (native) -> aac (native))
+
+2024-06-06T15:33:57.493Z [error]: ffmpeg Stream mapping:
+  Stream #0:0 -> #0:0 (opus (native) -> aac (native))
+
+2024-06-06T15:34:08.333Z [error]: ffmpeg [in#0/sdp @ 000001740568be00] Error during demuxing: Error number -138 occurred
+[in#0/sdp @ 000001740568be00] Terminating demuxer thread
+[in#0/sdp @ 000001740568be00] 
+2024-06-06T15:34:08.333Z [error]: ffmpeg [in#0/sdp @ 000001e5c7d8be00] Error during demuxing: Error number -138 occurred
+[in#0/sdp @ 000001e5c7d8be00] Terminating demuxer thread
+[in#0/sdp @ 000001e5c7d8be00] Error retrieving a packet from demuxer: Error number -138 occurred
+[aist#0:0/opus @ 000001e5c7e0f8c0] Decoder thread received EOF packet
+[aist#0:0/opus @ 000001e5c7e0f8c0] Decoder returned EOF, finishing
+[aist#0:0/opus @ 000001e5c7e0f8c0] Terminating decoder thread
+detected 8 logical cores
+
+2024-06-06T15:34:08.333Z [error]: ffmpeg Error retrieving a packet from demuxer: Error number -138 occurred
+[aist#0:0/opus @ 000001740570f8c0] Decoder thread received EOF packet
+[aist#0:0/opus @ 000001740570f8c0] Decoder returned EOF, finishing
+[aist#0:0/opus @ 000001740570f8c0] Terminating decoder thread
+detected 8 logical cores
+
+2024-06-06T15:34:08.337Z [error]: ffmpeg [graph_0_in_0_0 @ 0000017405718240] Setting 'time_base' to value '1/48000'
+[graph_0_in_0_0 @ 0000017405718240] Setting 'sample_rate' to value '48000'
+[graph_0_in_0_0 @ 0000017405718240] Setting 'sample_fmt' to value 'fltp'
+[graph_0_in_0_0 @ 0000017405718240] Setting 'channel_layout' to value 'stereo'
+
+2024-06-06T15:34:08.337Z [error]: ffmpeg [graph_0_in_0_0 @ 000001e5c7e17f40] Setting 'time_base' to value '1/48000'
+[graph_0_in_0_0 @ 000001e5c7e17f40] Setting 'sample_rate' to value '48000'
+[graph_0_in_0_0 @ 000001e5c7e17f40] Setting 'sample_fmt' to value 'fltp'
+[graph_0_in_0_0 @ 000001e5c7e17f40] Setting 'channel_layout' to value 'stereo'
+[graph_0_in_0_0 @ 000001e5c7e17f40] tb:1/48000 samplefmt:fltp samplerate:48000 chlayout:stereo
+[format_out_0_0 @ 000001e5c7ded480] Setting 'sample_fmts' to value 'fltp'
+[format_out_0_0 @ 000001e5c7ded480] Setting 'sample_rates' to value '96000|88200|64000|48000|44100|32000|24000|22050|16000|12000|11025|8000|7350'
+[AVFilterGraph @ 000001e5c7d8b7c0] query_formats: 4 queried, 6 merged, 3 already done, 0 delayed
+[out_0_0 @ 000001e5c7d8ba80] EOF on sink link out_0_0:default.
+[aost#0:0/aac @ 000001e5c7e10bc0] No filtered frames for output stream, trying to initialize anyway.
+
+2024-06-06T15:34:08.337Z [error]: ffmpeg [graph_0_in_0_0 @ 0000017405718240] tb:1/48000 samplefmt:fltp samplerate:48000 chlayout:stereo
+[format_out_0_0 @ 00000174056ed480] Setting 'sample_fmts' to value 'fltp'
+[format_out_0_0 @ 00000174056ed480] Setting 'sample_rates' to value '96000|88200|64000|48000|44100|32000|24000|22050|16000|12000|11025|8000|7350'
+[AVFilterGraph @ 0000017405690d80] query_formats: 4 queried, 6 merged, 3 already done, 0 delayed
+[out_0_0 @ 0000017405717680] EOF on sink link out_0_0:default.
+[aost#0:0/aac @ 0000017405710bc0] No filtered frames for output stream, trying to initialize anyway.
+
+2024-06-06T15:34:08.337Z [error]: ffmpeg For transform of length 1024, forward, mdct_float, flags: [aligned, out_of_place], found 2 matches:
+    1: mdct_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: 96
+    2: mdct_naive_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: -130976
+For transform of length 512, forward, fft_float, flags: [aligned, inplace, preshuf], found 5 matches:
+    1: fft_sr_ns_float_avx2 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 480
+    2: fft_sr_ns_float_fma3 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 448
+    3: fft_sr_ns_float_avx - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 416
+    4: fft_pfa_ns_float_c - type: fft_float, len: [6, ∞], factors[2]: [7, 5, 3, 2, any], flags: [unaligned, inplace, out_of_place, preshuf], prio: 112
+    5: fft512_ns_float_c - type: fft_float, len: 512, factor: 2, flags: [unaligned, inplace, out_of_place, preshuf], prio: 96
+Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 1024, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        
+2024-06-06T15:34:08.337Z [error]: ffmpeg For transform of length 1024, forward, mdct_float, flags: [aligned, out_of_place], found 2 matches:
+    1: mdct_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: 96
+    2: mdct_naive_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: -130976
+For transform of length 512, forward, fft_float, flags: [aligned, inplace, preshuf], found 5 matches:
+    1: fft_sr_ns_float_avx2 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 480
+    2: fft_sr_ns_float_fma3 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 448
+    3: fft_sr_ns_float_avx - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 416
+    4: fft_pfa_ns_float_c - type: fft_float, len: [6, ∞], factors[2]: [7, 5, 3, 2, any], flags: [unaligned, inplace, out_of_place, preshuf], prio: 112
+    5: fft512_ns_float_c - type: fft_float, len: 512, factor: 2, flags: [unaligned, inplace, out_of_place, preshuf], prio: 96
+Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 1024, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        fft_sr_ns_float_avx2 - type: fft_float, len: 512, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+For transform of length 128, forward, mdct_float, flags: [aligned, out_of_place], found 2 matches:
+    1: mdct_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: 96
+    2: mdct_naive_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: -130976
+For transform of length 64, forward, fft_float, flags: [aligned, inplace, preshuf], found 5 matches:
+    1: fft_sr_ns_float_avx2 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 480
+    2: fft_sr_ns_float_fma3 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 448
+    3:
+2024-06-06T15:34:08.338Z [error]: ffmpeg fft_sr_ns_float_avx2 - type: fft_float, len: 512, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+For transform of length 128, forward, mdct_float, flags: [aligned, out_of_place], found 2 matches:
+    1: mdct_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: 96
+    2: mdct_naive_fwd_float_c - type: mdct_float, len: [2, ∞], factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only], prio: -130976
+For transform of length 64, forward, fft_float, flags: [aligned, inplace, preshuf], found 5 matches:
+    1: fft_sr_ns_float_avx2 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 480
+    2: fft_sr_ns_float_fma3 - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 448
+    3: fft_sr_ns_float_avx - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 416
+    4: fft_pfa_ns_float_c - type: fft_float, len: [6, ∞], factors[2]: [7, 5, 3, 2, any], flags: [unaligned, inplace, out_of_place, preshuf], prio: 112
+    5: fft64_ns_float_c - type: fft_float, len: 64, factor: 2, flags: [unaligned, inplace, out_of_place, preshuf], prio: 96
+Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 128, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        fft_sr_ns_float_avx2 - type: fft_float, len: 64, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+
+2024-06-06T15:34:08.338Z [error]: ffmpeg  fft_sr_ns_float_avx - type: fft_float, len: [64, 131072], factor: 2, flags: [aligned, inplace, out_of_place, preshuf], prio: 416
+    4: fft_pfa_ns_float_c - type: fft_float, len: [6, ∞], factors[2]: [7, 5, 3, 2, any], flags: [unaligned, inplace, out_of_place, preshuf], prio: 112
+    5: fft64_ns_float_c - type: fft_float, len: 64, factor: 2, flags: [unaligned, inplace, out_of_place, preshuf], prio: 96
+Transform tree:
+    mdct_fwd_float_c - type: mdct_float, len: 128, factors[2]: [2, any], flags: [unaligned, out_of_place, fwd_only]
+        fft_sr_ns_float_avx2 - type: fft_float, len: 64, factor: 2, flags: [aligned, inplace, out_of_place, preshuf]
+
+2024-06-06T15:34:08.338Z [error]: ffmpeg [mpegts @ 000001e5c7e33400] frame size not set
+[mpegts @ 000001e5c7e33400] service 1 using PCR in pid=256, pcr_period=96ms
+[mpegts @ 000001e5c7e33400] muxrate VBR, 
+2024-06-06T15:34:08.338Z [error]: ffmpeg [mpegts @ 0000017405733400] frame size not set
+[mpegts @ 0000017405733400] service 1 using PCR in pid=256, pcr_period=96ms
+[mpegts @ 0000017405733400] muxrate VBR, sdt every 1073741822000 ms, pat/pmt every 1073741822000 ms
+[file @ 0000017405736200] Setting default whitelist 'file,crypto,data'
+
+2024-06-06T15:34:08.338Z [error]: ffmpeg sdt every 1073741822000 ms, pat/pmt every 1073741822000 ms
+[file @ 000001e5c7e361c0] Setting default whitelist 'file,crypto,data'
+Output #0, hls, to 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8':
+  Metadata:
+    title           : FFmpeg
+    encoder         : Lavf60.17.100
+  Stream #0:0, 0, 1/90000: Audio: aac (LC), 48000 Hz, stereo, fltp, delay 1024, 128 kb/s
+    Metadata:
+      encoder         : Lavc60.32.102 aac
+
+2024-06-06T15:34:08.339Z [error]: ffmpeg Output #0, hls, to 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8':
+  Metadata:
+    title           : FFmpeg
+    encoder         : Lavf60.17.100
+  Stream #0:0, 0, 1/90000: Audio: aac (LC), 48000 Hz, stereo, fltp, delay 1024, 128 kb/s
+    Metadata:
+      encoder         : Lavc60.32.102 aac
+[out#0/hls @ 000001740568c440] sq: 0 EOF
+[out#0/hls @ 000001740568c440]
+2024-06-06T15:34:08.339Z [error]: ffmpeg [out#0/hls @ 000001e5c7d8c440] sq: 0 EOF
+[out#0/hls @ 000001e5c7d8c440] sq: finish 0; head ts NOPTS
+[out#0/hls @ 000001e5c7d8c440] sq: finish queue
+size=       0kB time=N/A bitrate=N/A speed=N/A    No more output streams to write to, finishing.
+[out#0/hls @ 000001e5c7d8c440] sq: 0 EOF
+[out#0/hls @ 000001e5c7d8c440] sq: finish queue
+[out#0/hls @ 000001e5c7d8c440] sq: 0 EOF
+
+2024-06-06T15:34:08.339Z [error]: ffmpeg  sq: finish 0; head ts NOPTS
+[out#0/hls @ 000001740568c440] sq: finish queue
+size=       0kB time=N/A bitrate=N/A speed=N/A    No more output streams to write to, finishing.
+[out#0/hls @ 000001740568c440] sq: 0 EOF
+[out#0/hls @ 000001740568c440] sq: finish queue
+[out#0/hls @ 000001740568c440] sq: 0 EOF
+[out#0/hls @ 000001740568c440] sq: finish queue
+[out#0/hls @ 000001740568c440] sq: 0 EOF
+[out#0/hls @ 000001740568c440] sq: finish queue
+[out#0/hls @ 000001740568c440] All streams finished
+[out#0/hls @ 000001740568c440] Terminating muxer thread
+
+2024-06-06T15:34:08.339Z [error]: ffmpeg [out#0/hls @ 000001e5c7d8c440] sq: finish queue
+[out#0/hls @ 000001e5c7d8c440] sq: 0 EOF
+[out#0/hls @ 000001e5c7d8c440] sq: finish queue
+[out#0/hls @ 000001e5c7d8c440] All streams finished
+[out#0/hls @ 000001e5c7d8c440] Terminating muxer thread
+[hls @ 000001e5c7e0fec0] Opening 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls1.ts' for writing
+
+2024-06-06T15:34:08.339Z [error]: ffmpeg [hls @ 000001740570fec0] Opening 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls1.ts' for writing
+[file @ 0000017405736200] Setting default whitelist 'file,crypto,data'
+
+2024-06-06T15:34:08.339Z [error]: ffmpeg [file @ 000001e5c7e18500] Setting default whitelist 'file,crypto,data'
+
+2024-06-06T15:34:08.341Z [error]: ffmpeg [AVIOContext @ 000001e5c7e361c0] Statistics: 0 bytes written, 0 seeks, 0 writeouts
+
+2024-06-06T15:34:08.341Z [error]: ffmpeg [AVIOContext @ 0000017405736640] Statistics: 0 bytes written, 0 seeks, 0 writeouts
+[hls @ 000001740570fec0] Opening 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8.tmp' for writing
+[file @ 00000174057336c0] Setting default whitelist 'file,crypto,data'
+
+2024-06-06T15:34:08.341Z [error]: ffmpeg [hls @ 000001e5c7e0fec0] Opening 'C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8.tmp' for writing
+[file @ 000001e5c7e18500] Setting default whitelist 'file,crypto,data'
+EXT-X-MEDIA-SEQUENCE:1
+
+2024-06-06T15:34:08.341Z [error]: ffmpeg EXT-X-MEDIA-SEQUENCE:1
+[AVIOContext @ 00000174057337c0] Statistics: 142 bytes written, 0 seeks, 1 writeouts
+
+2024-06-06T15:34:08.341Z [error]: ffmpeg [AVIOContext @ 000001e5c7e336c0] Statistics: 142 bytes written, 0 seeks, 1 writeouts
+
+2024-06-06T15:34:08.342Z [error]: ffmpeg [out#0/hls @ 000001740568c440] Output file #0 (C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-2-hls/Kenh-2-hls.m3u8):
+[out#0/hls @ 000001740568c440]   Output stream #0:0 (audio): 0 frames encoded (0 samples)
+2024-06-06T15:34:08.342Z [error]: ffmpeg [out#0/hls @ 000001e5c7d8c440] Output file #0 (C:\Workspace\webrtc_vov\vov-server\files\hls\Kenh-1-hls/Kenh-1-hls.m3u8):
+[out#0/hls @ 000001e5c7d8c440]   Output stream #0:0 (audio): 0 frames encoded (0 samples); 0 packets muxed (0 bytes); 
+[out#0/hls @ 000001e5c7d8c440]   Total: 0 packets (0 bytes) muxed
+
+2024-06-06T15:34:08.342Z [error]: ffmpeg ; 0 packets muxed (0 bytes); 
+[out#0/hls @ 000001740568c440]   Total: 0 packets (0 bytes) muxed
+[out#0/hls @ 000001740568c440] video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[out#0/hls @ 000001740568c440] Output file is empty, nothing was encoded(check -ss / -t / -frames parameters if used)
+size=N/A time=N/A bitrate=N/A speed=N/A    
+
+2024-06-06T15:34:08.342Z [error]: ffmpeg [out#0/hls @ 000001e5c7d8c440] video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[out#0/hls @ 000001e5c7d8c440] Output file is empty, nothing was encoded(check -ss / -t / -frames parameters if used)
+size=N/A time=N/A bitrate=N/A speed=N/A    
+
+2024-06-06T15:34:08.342Z [error]: ffmpeg [aac @ 00000174056eff80] Qavg: nan
+
+2024-06-06T15:34:08.342Z [error]: ffmpeg [in#0/sdp @ 000001740568be00] Input file #0 (pipe:0):
+[in#0/sdp @ 000001740568be00]   Input stream #0:0 (audio): 0 packets read (0 bytes); 0 frames decoded; 0 decode errors (0 samples); 
+[in#0/sdp @ 000001740568be00]   Total: 0 packets (0 bytes) demuxed
+
+2024-06-06T15:34:08.343Z [error]: ffmpeg [aac @ 000001e5c7deff80] Qavg: nan
+
+2024-06-06T15:34:08.343Z [error]: ffmpeg [in#0/sdp @ 000001e5c7d8be00] Input file #0 (pipe:0):
+[in#0/sdp @ 000001e5c7d8be00] 
+2024-06-06T15:34:08.343Z [error]: ffmpeg   Input stream #0:0 (audio): 0 packets read (0 bytes); 0 frames decoded; 0 decode errors (0 samples); 
+[in#0/sdp @ 000001e5c7d8be00]   Total: 0 packets (0 bytes) demuxed
+
+2024-06-06T15:34:08.343Z [error]: ffmpeg [AVIOContext @ 00000174056a1040] Statistics: 143 bytes read, 0 seeks
+
+2024-06-06T15:34:08.343Z [error]: ffmpeg [AVIOContext @ 000001e5c7da1040] Statistics: 143 bytes read, 0 seeks
+
