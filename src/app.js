@@ -472,15 +472,15 @@ setInterval(async () => {
         await pro.transport.close();
         
         let hasChange = false;
-        for (let i = 0; i < newValue.length; i++) {
-          if(newValue[i].isActive === true && hasChange === false) {
-            newValue[i].isMainInput = true;
+        for (let i = 0; i < list_producer.length; i++) {
+          if(list_producer[i].isActive === true && hasChange === false) {
+            list_producer[i].isMainInput = true;
             hasChange = true;
           } else {
-            newValue[i].isMainInput = false;
+            list_producer[i].isMainInput = false;
           }
         }
-
+        producers.set(item, list_producer);
         if(data) {
           startRecord(data.producer, item.slug, data.socketId)
         }
