@@ -11,6 +11,7 @@ async function managerProducers(peers, producers) {
 
         socket.on('list-producer', () => {
             const results = [];
+            socket.join('admin')
             for (let [key, value] of producers) {
                 const streams = [];
                 value.forEach(item => {
@@ -41,7 +42,6 @@ async function managerProducers(peers, producers) {
                 const newProducer = listProducer.filter(data => data.id !== id);
                 newProducer.push(prod)
                 producers.set(name, newProducer);
-                socket.emit('emit-delete-producer-sucess')
             }
             
         })

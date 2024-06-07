@@ -27,19 +27,19 @@ app.use('/playhls', (request, response) => {
   const base = path.basename(url, path.extname(url))
   const extractBase = base.substring(0, base.indexOf('-hls') + 4);
   let filePath = ""
-  var filePathOption1 = path.resolve(`../vov-server/files/hls/${base}/${url}`);
-  var filePathOption2 = path.resolve(`../vov-server/files/hls/${extractBase}/${url}`)
-
+  var filePathOption1 = path.resolve(`./files/hls/${base}/${url}`);
+  var filePathOption2 = path.resolve(`./files/hls/${extractBase}/${url}`)
+// console.log('option',filePathOption1,filePathOption2);
   if (fs.existsSync(filePathOption1)) {
-      filePath = filePathOption1
+    filePath = filePathOption1
   }
   else {
-      filePath = filePathOption2
+    filePath = filePathOption2
   }
-
   fs.readFile(filePath, function (error, content) {
     response.writeHead(200, { 'Access-Control-Allow-Origin': '*' });
     if (error) {
+      console.log(error)
       if (error.code == 'ENOENT') {
           fs.readFile('./404.html', function (error, content) {
               response.end(content, 'utf-8');
@@ -52,6 +52,7 @@ app.use('/playhls', (request, response) => {
       }
     }
     else {
+      console.log(content)
         response.end(content, 'utf-8');
     }
   });
@@ -61,12 +62,10 @@ const options = {
   key: fs.readFileSync('./ssl/key.pem', 'utf-8'),
   cert: fs.readFileSync('./ssl/cert.pem', 'utf-8')
 }
-
 const httpsServer = https.createServer(options, app)
-
 const PORT = process.env.PORT;
 const HOST_IP = process.env.HOST_IP;
-
+const BASE_URL=process.env.BASE_URL
 httpsServer.listen(PORT, () => {
   console.log('listening on port: ' + PORT)
 })
@@ -85,12 +84,15 @@ let router
 let producerTransport
 let consumerTransport
 let producers = new Map()
+let uniqueStream = new Set()
+let uniqueSlug=new Set()
 let producerFails = new Set();
 let consumers = []
 const peer = {};
 let webRTCTransport = []
 let processWriteHLS = {};
 let consumer;
+
 const mediaCodecs = [
   {
     kind: 'audio',
@@ -173,8 +175,8 @@ const getProducer = (channelName) => {
   if (!producers.has(channelName) || producers.get(channelName).length==0) {
     return null
   }
-  const listProcder = producers.get(channelName)
-  return listProcder.find(item => item.isActive === true);
+  const listProducer = producers.get(channelName)
+  return listProducer.find(item => item.isActive === true);
 }
 
 const getProducerList = (channelName) => {
@@ -191,25 +193,15 @@ const addProducer = (data) => {
     if(listPro[i].uid === data.uid) {
       listPro[i] = data;
       isExits = true;
+    } 
+    if(listPro[i].isActive === false) {
+      listPro[i].isMainInput = false;
     }
   }
   if(!isExits) {
     producers.get(data.name).push(data)
   }
 }
-
-// const getProducerList = () => {
-//   return producers
-//   let producersList = {}
-//   for ([key, value] in producers) {
-
-//     producersList[key] = {
-//       id: value.id,
-//       slug: value.slug
-//     }
-//   }
-//   return producersList
-// }
 
 peers.on('connection', async socket => {
 
@@ -262,6 +254,7 @@ peers.on('connection', async socket => {
   // })
 
   socket.on('transport-recv-connect', async ({ dtlsParameters }) => {
+    console.log("=====================================::")
     const consumerTransport = webRTCTransport.find(item => item.id == socket.id).consumerTransport
     await consumerTransport.connect({ dtlsParameters })
   })
@@ -272,10 +265,11 @@ peers.on('connection', async socket => {
         throw new Error(`Invalid channel:${channelName}`)
       }
       socket.join(channelName);
-      let producer = getProducer(channelName).producer;
-      if (!producer) {
+      let data = getProducer(channelName);
+      if (!data) {
         throw new Error(`Cannot find producer for channel ${channelName}`)
       }
+      const producer = data.producer;
       if (router.canConsume({
         producerId: producer.id,
         rtpCapabilities
@@ -311,6 +305,13 @@ peers.on('connection', async socket => {
 
   // })
   socket.on('create-producer', async (data, callback) => {
+    if (! data) {
+      throw new Error ("Data is empty")
+    }
+    if (uniqueStream.has(data.slug)) {
+      throw new Error (`Slug must be unique and not null : ${data.slug}`)
+    }
+    
     const streamTransport = await createPlain();
     const producer = await streamTransport.produce({
       kind: 'audio',
@@ -377,6 +378,7 @@ peers.on('connection', async socket => {
         name: data.name,
         id: producer.id,
         note: data.note,
+        uid: data.uid,
         producer: producer,
         transport,
         port: transport.tuple.localPort,
@@ -384,7 +386,32 @@ peers.on('connection', async socket => {
         isMainInput,
       }
     )
+    peers.to('admin').emit('add-channel-directlink-success')
   })
+  socket.on("req_hls_link", data => {
+    const baseHLS = `${BASE_URL}/playhls`
+    if (!data.channel) {
+      console.log('Error require channel value , got', data.channel);
+      return
+    }
+    // console.log("prods",producers)
+    if (!producers.has(data.channel)||!producers.get(data.channel).length)
+    {
+      console.log("Producer is not available")
+      return
+    }
+    const folder = createSlug(data.channel);
+    const hlsPath= path.resolve(`./files/hls/${folder}-hls`)
+    if (!fs.existsSync(hlsPath)) {
+      console.log('Error,cannot find hls path');
+    return
+    } 
+    console.log(`${baseHLS}/${folder}-hls.m3u8`)
+    socket.emit("res_hls_link", {
+      link: `${baseHLS}/${folder}-hls.m3u8`
+    }) 
+  })
+  
 })
 
 setInterval(async () => {
@@ -411,7 +438,6 @@ setInterval(async () => {
     });
     producers.set(key, value);
   }
-
   Promise.all(promises)
   .then(() => {
     if (producerDelete.length > 0) {
@@ -422,6 +448,7 @@ setInterval(async () => {
         await pro.transport.close();
         const newValue = list_producer.filter(data => data.isDelete !== true);
         producers.set(item, newValue);
+        peers.to('admin').emit('emit-delete-producer-sucess')
       })
     }
     if(producerFails.length > 0) {
