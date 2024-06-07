@@ -380,7 +380,7 @@ peers.on('connection', async socket => {
       producers.set(data.name, [])
     }
     let isMainInput = false;
-    if (!producers.has(data.name) || producers.get(data.name).length === 0) {
+    if (!producers.has(data.name) || !producers.get(data.name).find(item => item.isActive === true)) {
       isMainInput = true;
     }
     const slug = createSlug(data.name)
@@ -460,7 +460,7 @@ setInterval(async () => {
         await pro.transport.close();
         const newValue = list_producer.filter(data => data.isDelete !== true);
         for (let i = 0; i < newValue.length; i++) {
-          if(newValue[i].isActive) {
+          if(newValue[i].isActive === true) {
             newValue[i].isMainInput = true;
             break;
           }
