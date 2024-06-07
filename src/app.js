@@ -459,12 +459,6 @@ setInterval(async () => {
         await pro.producer.close();
         await pro.transport.close();
         const newValue = list_producer.filter(data => data.isDelete !== true);
-        for (let i = 0; i < newValue.length; i++) {
-          if(newValue[i].isActive === true) {
-            newValue[i].isMainInput = true;
-            break;
-          }
-        }
         producers.set(item, newValue);
         peers.to('admin').emit('emit-delete-producer-sucess')
       })
@@ -476,6 +470,17 @@ setInterval(async () => {
         const pro = list_producer.find(producer => producer.id === item.id)
         await pro.producer.close();
         await pro.transport.close();
+        
+        let hasChange = false;
+        for (let i = 0; i < newValue.length; i++) {
+          if(newValue[i].isActive === true && hasChange === false) {
+            newValue[i].isMainInput = true;
+            hasChange = true;
+          } else {
+            newValue[i].isMainInput = false;
+          }
+        }
+
         if(data) {
           startRecord(data.producer, item.slug, data.socketId)
         }
