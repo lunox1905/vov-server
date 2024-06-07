@@ -459,6 +459,12 @@ setInterval(async () => {
         await pro.producer.close();
         await pro.transport.close();
         const newValue = list_producer.filter(data => data.isDelete !== true);
+        for (let i = 0; i < newValue.length; i++) {
+          if(newValue[i].isActive) {
+            newValue[i].isMainInput = true;
+            break;
+          }
+        }
         producers.set(item, newValue);
         peers.to('admin').emit('emit-delete-producer-sucess')
       })
