@@ -418,6 +418,7 @@ peers.on('connection', async socket => {
       console.log('Error,cannot find hls path');
     return
     } 
+    socket.join(data.name);
     listPlayerHls.push(socket.id)
     socket.emit("res_hls_link", {
       link: `${baseHLS}/${folder}-hls.m3u8`
