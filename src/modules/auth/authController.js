@@ -20,9 +20,7 @@ const register = async (req, res) => {
                 message: 'User already exists'
             });
         }
-        // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
-        // Store the new user
         const newUser = new User({
             email: email,
             password: hashedPassword,
@@ -59,8 +57,6 @@ const login = async (req, res) => {
                 message: 'Invalid credentials'
             });
         }
-
-        // Check the password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             
