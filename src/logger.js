@@ -1,6 +1,6 @@
 const winston = require('winston');
 const path = require("path")
-const logDir = path.resolve("../logs")
+const logDir = path.resolve("./logs")
 const fs=require('fs')
  class Logger {
      constructor(filename) {
@@ -13,7 +13,7 @@ const fs=require('fs')
          const seconds = now.getSeconds().toString().padStart(2, '0');
          const formattedDateTime = `${year}-${month}-${date}--${hour}-${minutes}-${seconds}`;
          const filePath = path.join(logDir, `${formattedDateTime}-${filename}`)
-        console.log(filePath)
+        console.log("log path",filePath)
         this.logger = winston.createLogger({
             level: 'info',
             format: winston.format.combine(
@@ -23,8 +23,8 @@ const fs=require('fs')
                 })
             ),
             transports: [
-                new winston.transports.Console(),
-                // new winston.transports.File({ filename: `${filePath}` })
+                // new winston.transports.Console(),
+                new winston.transports.File({ filename: `${filePath}` })
             ]
         });
     }
