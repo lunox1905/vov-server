@@ -384,8 +384,7 @@ peers.on('connection', async socket => {
       isMainInput = true;
     }
     const slug = createSlug(data.name)
-    producers.get(data.name).push(
-      {
+    const newData = {
         slug,
         name: data.name,
         id: producer.id,
@@ -397,7 +396,7 @@ peers.on('connection', async socket => {
         isActive: true,
         isMainInput,
       }
-    )
+    addProducer(newData)
     peers.to('admin').emit('add-channel-directlink-success')
   })
   socket.on("req_hls_link", data => {
@@ -474,7 +473,7 @@ setInterval(async () => {
         
         let hasChange = false;
         for (let i = 0; i < list_producer.length; i++) {
-          if(list_producer[i].isActive === true && hasChange === false) {
+          if(list_producer[i].isActive === true && hasChange === false && list_producer.length > 1) {
             list_producer[i].isMainInput = true;
             hasChange = true;
           } else {
