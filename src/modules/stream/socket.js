@@ -9,7 +9,7 @@ const direcLink = require('../../directLink')
 const managerProducers = require('../../managerProducers')
 const { getPort } = require('../../port');
 const { createNoti } = require("../notification/controller/noti")
-
+const {insertLog,getLogs}= require("../notification/model/noti")
 let io
     const emitNoti = (data) => {
         if (!io) {
@@ -310,23 +310,30 @@ const initIOServer = (httpsServer) => {
                 if (item.isDelete === true) {
                     producerDelete.push(item.name)
                     console.log("Emit noti ", item.name)
-                    emitNoti({
-                        level: "medium",
-                        title: "producer is deleted",
-                        content: ` producer ${item.name} is deleted`
+                    // emitNoti({
+                    //     level: "medium",
+                    //     title: "producer is deleted",
+                    //     content: ` producer ${item.name} is deleted`
 
-                    })
+                    // })
+                    insertLog({
+                            has_read:false,
+                            level: "warning",
+                            title: "producer is deleted",
+                            content: ` producer ${item.name} is deleted`
+                     })
                 }
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
                         if (!stats || stats[0]?.bitrate === 0) {
                             console.log("Emit noti ", item.name)
-                            emitNoti({
-                                level: "medium",
-                                title: "producer is disconneced",        
+                            insertLog({
+                                has_read:false,
+                                level: "warning",
+                                title: "producer is disconneced",
                                 content: ` producer ${item.name} is disconnected`
-                                 
                             })
+                            peers.emit("new-noti")
                             item.isActive = false;
                             producerFails.push({ name: item.name, slug: item.slug, id: item.id })
                             peers.to(item.name).emit('reconnect');

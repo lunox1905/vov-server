@@ -1,34 +1,42 @@
-const Noti = require("../model/noti")
-const createNoti = async (data) => {
+const { getLogs,deleteLog } = require("../model/noti")
+const removeLog = async (req, res) => {
     try {
-        const { level, title, content } = data;
-        if (!level || !title || !content) {
-            return {
-                error: true,
-                msg: `Param data has null value: level ${level}, title ${title}, content ${content}`
-            };
+        const { id } = req.body 
+        if (!id) {
+            res.status(400).send({
+                success: false,
+                message:"id is empty"
+            })
+          throw new Error("Id is empty")  
         }
-        
-        // Create a new notification instance
-        const newNoti = new Noti({
-            level: level,
-            title: title,
-            content: content
-        });
-
-        const savedNoti = await newNoti.save();
-        return {
-            error: false,
-            id: savedNoti._id
-        };
+        const result = await deleteLog(id)
+        console.log(result)
+        res.status(201).send({
+            success: true,
+        })
     } catch (error) {
-        console.log(error);
-        return {
-            error: true,
-            msg: error.message
-        };
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "internal server error"
+        })
     }
-};
+}
+const fetchLogs = async (req, res) => {
+    try {
+        let rows =await getLogs()
+        res.status(200).json({
+            data:rows
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            success: false,
+            message: "internal server error"
+        })
+    }
+}
 module.exports = {
-    createNoti
+    fetchLogs,
+    removeLog
 }
