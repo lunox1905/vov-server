@@ -2,7 +2,6 @@ const child_process = require('child_process');
 const { EventEmitter } = require('events');
 const path = require("path")
 const fs = require('fs');
-const Logger = require('./logger.js')
 var kill = require('tree-kill');
 module.exports = class LinkFFmpeg {
     constructor(options) {
