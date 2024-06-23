@@ -7,10 +7,10 @@ require("dotenv").config()
     else {
         database=process.env.MYSQL_DB_PROD
 }
-// let connection
+let connection
 const mysqlConnect = async () => {
     
-  const  connection= mysql.createConnection({
+    connection= mysql.createConnection({
         host: process.env.MYSQL_HOST,
         user: process.env.MYSQL_USER,
         password: process.env.MYSQL_PASSWORD,
@@ -20,7 +20,8 @@ const mysqlConnect = async () => {
     console.log('Connected to the mysql.');
     return connection
 }
+mysqlConnect().then()
 module.exports = {
-    // connection,
+    connection,
     mysqlConnect
 }

@@ -1,6 +1,5 @@
 const express = require('express')
-// const { getLogs } = require("../model/noti")
-const {fetchLogs} = require("../controller/noti")
+const {fetchLogs,removeLog} = require("../controller/noti")
 const router = express.Router();
 router.get("/", fetchLogs)
 router.post("/delete",removeLog)

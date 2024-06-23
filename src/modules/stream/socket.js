@@ -10,6 +10,7 @@ const managerProducers = require('../../managerProducers')
 const { getPort } = require('../../port');
 const { createNoti } = require("../notification/controller/noti")
 const {insertLog,getLogs}= require("../notification/model/noti")
+console.log("host ip",process.env.HOST_IP)
 let io
     const emitNoti = (data) => {
         if (!io) {
@@ -118,8 +119,8 @@ const initIOServer = (httpsServer) => {
         if (!producers.has(channelName) || producers.get(channelName).length == 0) {
             return null
         }
-        const listProcder = producers.get(channelName)
-        return listProcder.find(item => item.isActive === true);
+        const listProducer = producers.get(channelName)
+        return listProducer.find(item => item.isActive === true);
     }
 
     const getProducerList = (channelName) => {
@@ -197,7 +198,14 @@ const initIOServer = (httpsServer) => {
                     throw new Error(`Invalid channel:${channelName}`)
                 }
                 socket.join(channelName);
+
+                let producerWrapper = getProducer(channelName)
+                if (!producerWrapper) {
+                    peers.emit("error-event", "Do not have stream source")
+                    return
+                }
                 let producer = getProducer(channelName).producer;
+            
                 if (!producer) {
                     throw new Error(`Cannot find producer for channel ${channelName}`)
                 }
@@ -326,7 +334,6 @@ const initIOServer = (httpsServer) => {
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
                         if (!stats || stats[0]?.bitrate === 0) {
-                            console.log("Emit noti ", item.name)
                             insertLog({
                                 has_read:false,
                                 level: "warning",
@@ -380,7 +387,7 @@ const initIOServer = (httpsServer) => {
                 listenIps: [
                     {
                         ip: '0.0.0.0',
-                        announcedIp: HOST_IP,
+                        announcedIp: process.env.HOST_IP,
                     }
                 ],
                 enableUdp: true,

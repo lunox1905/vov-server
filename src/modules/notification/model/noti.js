@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const {mysqlConnect,connection}= require('../../../database/mysqlDB');
+const {mysqlConnect}= require('../../../database/mysqlDB');
+// let connection = await mysqlConnect();
 async function insertLog(data) {
     let connection = await mysqlConnect();
     const { has_read, title, content, level }=data
@@ -28,11 +29,3 @@ module.exports = {
     getLogs,
     deleteLog
 };
-// const notiSchema = new mongoose.Schema({
-//     level:{type:String,required:true},
-//     title: { type: String, required: true },
-//     content: { type: String, required: true },
-//     createdAt: { type: Date, default: Date.now }
-
-// })
-// module.exports=mongoose.model('Noti',notiSchema)

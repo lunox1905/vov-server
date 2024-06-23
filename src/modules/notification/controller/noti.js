@@ -10,7 +10,6 @@ const removeLog = async (req, res) => {
           throw new Error("Id is empty")  
         }
         const result = await deleteLog(id)
-        console.log(result)
         res.status(201).send({
             success: true,
         })
