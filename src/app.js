@@ -6,10 +6,9 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const app = express();
-const authRouter = require('./modules/auth/authRouter');
+const authRouter = require('./modules/auth/routers/auth');
 const logRouter=require('./modules/notification/router/noti')
 const { hlsPlay } = require("./hlsPlay")
-const {mysqlConnect}=require("./database/mysqlDB")
 const { startDBConnection, closeDBConnection } = require("./database/mongoDB")
 const {initIOServer}=require("../src/modules/stream/socket")
 app.use(cors("*"))
@@ -17,7 +16,6 @@ app.use(bodyParser.json());
 async function main ()  {
   
   await startDBConnection()
-  await mysqlConnect()
 }
 main()
 const options = {

@@ -8,20 +8,10 @@ const FFmpeg = require('../../ffmpeg');
 const direcLink = require('../../directLink')
 const managerProducers = require('../../managerProducers')
 const { getPort } = require('../../port');
-const { createNoti } = require("../notification/controller/noti")
-const {insertLog,getLogs}= require("../notification/model/noti")
+const { createLog } = require("../notification/controller/noti")
 console.log("host ip",process.env.HOST_IP)
 let io
-    const emitNoti = (data) => {
-        if (!io) {
-            return {
-                error: True,
-                message: "io server is not up"
-            }
-        }
-        io.emit("noti", data)
-        createNoti(data)
-    }
+   
 const initIOServer = (httpsServer) => {    
      io = new Server(httpsServer, {
         allowEIO3: true,
@@ -314,27 +304,24 @@ const initIOServer = (httpsServer) => {
         const producerFails = [];
         const producerDelete = [];
         for (let [key, value] of producers) {
-            value.forEach(item => {
+            value.forEach(item =>  {
                 if (item.isDelete === true) {
                     producerDelete.push(item.name)
                     console.log("Emit noti ", item.name)
-                    // emitNoti({
-                    //     level: "medium",
-                    //     title: "producer is deleted",
-                    //     content: ` producer ${item.name} is deleted`
-
-                    // })
-                    insertLog({
+    
+                    createLog({
                             has_read:false,
                             level: "warning",
                             title: "producer is deleted",
                             content: ` producer ${item.name} is deleted`
-                     })
+                    })
+                    peers.emit("new-noti")
+
                 }
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
                         if (!stats || stats[0]?.bitrate === 0) {
-                            insertLog({
+                           createLog({
                                 has_read:false,
                                 level: "warning",
                                 title: "producer is disconneced",
@@ -484,5 +471,4 @@ const initIOServer = (httpsServer) => {
 module.exports = {
     initIOServer,
     io,
-    emitNoti
 }
