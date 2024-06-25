@@ -1,0 +1,11 @@
+
+CREATE DATABASE vov_dev;
+
+CREATE TABLE log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    has_read BOOLEAN NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    level ENUM('info', 'warning', 'error') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

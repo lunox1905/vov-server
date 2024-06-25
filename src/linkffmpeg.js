@@ -6,7 +6,6 @@ var kill = require('tree-kill');
 module.exports = class LinkFFmpeg {
     constructor(options) {
         const { link, port } = options;
-        this.Logger = new Logger(`log.txt`).getlog()
         this.link = link
         this.port = port
         console.log('options', this.link, this.port);

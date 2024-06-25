@@ -16,7 +16,6 @@ module.exports = class FFmpeg {
     this._rtpParameters = rtpParameters;
     this._process = null;
     this._observer = new EventEmitter();
-    this.Logger = new Logger(`log.txt`).getlog()
     this.formats = {
       "mp3": this._audioArgs,
       "hls": this._hlsArgs
