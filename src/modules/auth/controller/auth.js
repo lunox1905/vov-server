@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY
-const User = require('./authModel');
+const User = require('../model/auth');
 const register = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -66,16 +66,16 @@ const login = async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ email }, SECRET_KEY,);
+        const token = jwt.sign({ email }, SECRET_KEY);
        return res.status(200).json({
             "status": "success",
             token
         });
     } catch (error) {
         console.log('Error',error);
-        res.send(500).json({
-            "status": "error",
-            "message": "Server error"
+        res.status(500).json({
+            status: 'error',
+            message: 'Server error'
         })
     }
    

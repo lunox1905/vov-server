@@ -1,31 +1,30 @@
-const { getLogs,deleteLog } = require("../model/noti")
-const removeLog = async (req, res) => {
+const Noti = require("../model/noti")
+const createLog = async (data) => {
     try {
-        const { id } = req.body 
-        if (!id) {
-            res.status(400).send({
-                success: false,
-                message:"id is empty"
-            })
-          throw new Error("Id is empty")  
+        
+        const { has_read, title, content, level } = data
+        console.log(has_read,"- ", title,"-",content,"-",level)
+        if (has_read==null || title==null || content==null || level==null) {
+            throw new Error(`Missing field, require has_read, title, content, level but receive ${has_read} , ${title}, ${content}, ${level}`)
         }
-        const result = await deleteLog(id)
-        res.status(201).send({
-            success: true,
+        const record = new Noti({
+            has_read: has_read,
+            title: title,
+            content: content,
+            level:level
         })
+        const saveRecord=await record.save()
+        return saveRecord
     } catch (error) {
         console.log(error)
-        res.status(500).send({
-            success: false,
-            message: "internal server error"
-        })
+        // throw error
     }
 }
 const fetchLogs = async (req, res) => {
     try {
-        let rows =await getLogs()
+        let rows = await Noti.find({}).sort({created_at: -1});
         res.status(200).json({
-            data:rows
+            data: rows
         })
     } catch (error) {
         console.log(error)
@@ -37,5 +36,5 @@ const fetchLogs = async (req, res) => {
 }
 module.exports = {
     fetchLogs,
-    removeLog
+    createLog
 }

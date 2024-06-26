@@ -4,20 +4,23 @@ const fs = require('fs');
 const path = require('path');
 const cors = require("cors");
 const bodyParser = require('body-parser');
+
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 const app = express();
-const authRouter = require('./modules/auth/authRouter');
-const logRouter=require('./modules/notification/router/noti')
-const { hlsPlay } = require("./hlsPlay")
-const {mysqlConnect}=require("./database/mysqlDB")
+
+const authRouter = require('./modules/auth/routers/auth');
+const logRouter = require('./modules/notification/router/noti');
+const channelRouter = require('./modules/channel/router/channel');
+const { hlsPlay } = require("./modules/stream/hls_stream/play_hls")
 const { startDBConnection, closeDBConnection } = require("./database/mongoDB")
-const {initIOServer}=require("../src/modules/stream/socket")
+const { initIOServer } = require("../src/modules/stream/index");
+
 app.use(cors("*"))
 app.use(bodyParser.json());
+
 async function main ()  {
-  
-  // await startDBConnection()
-  await mysqlConnect()
+  await startDBConnection()
 }
 main()
 const options = {
@@ -32,7 +35,9 @@ app.get("/", (req, res) => {
 })
 app.use("/auth", authRouter)
 app.use('/playhls', hlsPlay)
-app.use('/logs',logRouter)
+app.use('/logs', logRouter)
+app.use('/channel', channelRouter)
+
 httpsServer.listen(PORT, () => {
   console.log('listening on port: ' + PORT)
 })

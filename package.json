@@ -23,7 +23,6 @@
     "mediasoup-client": "^3.7.7",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
-    "mysql2": "^3.10.1",
     "slugify": "^1.6.6",
     "socket.io": "^4.7.5",
     "tree-kill": "^1.2.2"

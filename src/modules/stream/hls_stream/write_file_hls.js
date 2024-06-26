@@ -6,7 +6,7 @@ const path = require("path")
 const fs = require('fs');
 const { removeDir,overwriteFolder } = require('./utils.js')
 
-// console.log('path', path.resolve('../files'));
+console.log('path::', path.resolve('../files'));
 const RECORD_FILE_LOCATION_PATH = process.env.RECORD_FILE_LOCATION_PATH || path.resolve('../vov-server/files');
 const myOS = getOS()
 module.exports = class FFmpeg {
@@ -114,7 +114,6 @@ module.exports = class FFmpeg {
       }
       // overwriteFolder(folderPath)
       if (fs.existsSync(folderPath)) {
-        console.log('Folder exists.');
         fs.rmdirSync(folderPath, { recursive: true, force: true });
       } 
       fs.mkdirSync(folderPath);
