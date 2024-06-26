@@ -1,7 +1,6 @@
 const Noti = require("../model/noti")
 const createLog = async (data) => {
     try {
-        
         const { has_read, title, content, level } = data
         console.log(has_read,"- ", title,"-",content,"-",level)
         if (has_read==null || title==null || content==null || level==null) {
@@ -17,12 +16,13 @@ const createLog = async (data) => {
         return saveRecord
     } catch (error) {
         console.log(error)
-        // throw error
     }
 }
 const fetchLogs = async (req, res) => {
     try {
-        let rows = await Noti.find({}).sort({created_at: -1});
+        let rows = await Noti.find({})
+        rows.sort((a, b) => new Date(a.created_time) - new Date(b.created_time) );
+       rows.reverse()
         res.status(200).json({
             data: rows
         })
