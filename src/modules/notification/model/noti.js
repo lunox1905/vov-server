@@ -1,9 +1,27 @@
 const mongoose = require('mongoose')
+// Export the functions
 const notiSchema = new mongoose.Schema({
-    level:{type:String,required:true},
-    title: { type: String, required: true },
-    content: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
-
+    has_read: {
+        type: Boolean,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true,
+        maxlength: 255
+    },
+    content: {
+        type: String,
+        required: true
+    },
+    level: {
+        type: String,
+        enum: ['info', 'warning', 'error'],
+        required: true
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
+    }
 })
-module.exports=mongoose.model('Noti',notiSchema)
+module.exports = mongoose.model('Noti',notiSchema)

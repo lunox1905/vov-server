@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon ./src/app.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./src/app.js",
     "start:prod": "cross-env NODE_ENV=production nodemon ./src/app.js",
     "test": "cross-env NODE_ENV=development mocha --timeout 10000"
@@ -24,8 +25,7 @@
     "mongoose": "^8.4.1",
     "slugify": "^1.6.6",
     "socket.io": "^4.7.5",
-    "tree-kill": "^1.2.2",
-    "winston": "^3.13.0"
+    "tree-kill": "^1.2.2"
   },
   "devDependencies": {
     "mocha": "^10.4.0"

@@ -1,34 +1,40 @@
 const Noti = require("../model/noti")
-const createNoti = async (data) => {
+const createLog = async (data) => {
     try {
-        const { level, title, content } = data;
-        if (!level || !title || !content) {
-            return {
-                error: true,
-                msg: `Param data has null value: level ${level}, title ${title}, content ${content}`
-            };
-        }
         
-        // Create a new notification instance
-        const newNoti = new Noti({
-            level: level,
+        const { has_read, title, content, level } = data
+        console.log(has_read,"- ", title,"-",content,"-",level)
+        if (has_read==null || title==null || content==null || level==null) {
+            throw new Error(`Missing field, require has_read, title, content, level but receive ${has_read} , ${title}, ${content}, ${level}`)
+        }
+        const record = new Noti({
+            has_read: has_read,
             title: title,
-            content: content
-        });
-
-        const savedNoti = await newNoti.save();
-        return {
-            error: false,
-            id: savedNoti._id
-        };
+            content: content,
+            level:level
+        })
+        const saveRecord=await record.save()
+        return saveRecord
     } catch (error) {
-        console.log(error);
-        return {
-            error: true,
-            msg: error.message
-        };
+        console.log(error)
+        // throw error
     }
-};
+}
+const fetchLogs = async (req, res) => {
+    try {
+        let rows = await Noti.find({}).sort({created_at: -1});
+        res.status(200).json({
+            data: rows
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            success: false,
+            message: "internal server error"
+        })
+    }
+}
 module.exports = {
-    createNoti
+    fetchLogs,
+    createLog
 }

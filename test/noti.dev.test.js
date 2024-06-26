@@ -1,6 +1,6 @@
 const assert = require('assert');
-const { startDBConnection} = require("../src/db")
-const {createNoti} =require("../src/modules/notification/controller/noti")
+const { startDBConnection} = require("../src/database/mongoDB")
+const {createLog} =require("../src/modules/notification/controller/noti")
 describe('Test update notification in database in dev mode', function () {
     before(function () {
         require("dotenv").config()
@@ -25,20 +25,15 @@ describe('Test update notification in database in dev mode', function () {
     describe('Create new log', function () {
         it('should return success log created',async function () {
             const log_data = {
-                "level": "info",
-                "title": 'testlog',
-                "content": 'empty'
+                "has_read":true,
+                "title": "test log",
+                "content": 'test',
+                "level": 'info'
             }
-            const output = await createNoti(log_data)
+            const output = await createLog(log_data)
             console.log(output)
             assert.notEqual(output, null);
         });
     });
-    describe('Array', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.strictEqual([1, 2, 3].indexOf(4), -1);
-        });
-    });
-
-
+   
 });
