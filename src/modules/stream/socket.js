@@ -78,6 +78,7 @@ const initIOServer = (httpsServer) => {
     }
 
     peers.on('connection', async socket => {
+
         socket.on('disconnect', () => {
             if (processWriteHLS[socket.id]) {
                 processWriteHLS[socket.id].kill()
@@ -215,37 +216,66 @@ const initIOServer = (httpsServer) => {
             producerManager.addProducer(newData)
             callback(streamTransport.tuple.localPort)
         })
-
+        socket.on("update-channel-name", data=> {
+            const { newName, oldName } = data
+            if (!producerManager.getProducerByChannel(oldName)) {
+               socket.emit() 
+            }
+    
+        })
         socket.on("link-stream", async (data) => {
             const { producer, transport } = await direcLink(router, data)
-            if (!producers.has(data.name)) {
-                producers.set(data.name, [])
-            }
+
+            producerManager.createChannelArrIfNotExist(data.name)
+
             let isMainInput = false;
-            if (!producers.has(data.name) || producers.get(data.name).length === 0) {
+            const slug = createSlug(data.name)
+            if (!producerManager.getActiveProds()) {
+                startRecord(producer, slug, socket.id)
                 isMainInput = true;
             }
-            const slug = createSlug(data.name)
-            producerManager.addProducer(
-                {
-                    slug,
-                    name: data.name,
-                    id: producer.id,
-                    note: data.note,
-                    producer: producer,
-                    transport,
-                    port: transport.tuple.localPort,
-                    isActive: true,
-                    isMainInput,
+            const newData = {
+                slug: slug,
+                name: data.name,
+                id: producer.id,
+                uid: data.uid,
+                producer: producer,
+                note: data.note,
+                transport: streamTransport,
+                port: streamTransport.tuple.localPort,
+                isActive: true,
+                isMainInput
+            }
+            producerManager.addProducer(newData)
+            
+            // if (!producers.has(data.name)) {
+            //     producers.set(data.name, [])
+            // }
+            // let isMainInput = false;
+            // if (!producers.has(data.name) || producers.get(data.name).length === 0) {
+            //     isMainInput = true;
+            // }
+            // const slug = createSlug(data.name)
+            // producerManager.addProducer(
+            //     {
+            //         slug,
+            //         name: data.name,
+            //         id: producer.id,
+            //         note: data.note,
+            //         producer: producer,
+            //         transport,
+            //         port: transport.tuple.localPort,
+            //         isActive: true,
+            //         isMainInput,
 
-                }
-            )
+            //     }
+            // )
         })
     })
 
     setInterval(async () => {
         const backUpProds = producerManager.getBackUpProds()
-            
+
         if (backUpProds) {
             backUpProds.forEach(obj => {
                 startRecord(obj.producer, obj.slug, obj.socketId)

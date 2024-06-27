@@ -95,7 +95,6 @@ class ProducerManager {
   }
   getProducerStats = () => {
     for (let [channelName, prodsByChan] of this.producers) { 
-
       prodsByChan.forEach(prod => {
         console.log(`Channel ${channelName} ${prod.isActive} `)
       })
@@ -103,7 +102,7 @@ class ProducerManager {
   }
   healthCheck = () => {
     setInterval(async () => {
-      this.getProducerStats()
+      // this.getProducerStats()
       const promises = [];
       const producerFails = [];
       const producerDelete = [];
