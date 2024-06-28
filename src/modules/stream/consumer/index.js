@@ -29,11 +29,13 @@ async function main(router, peers, socket) {
                 rtpCapabilities
             })) {
                 const consumerTransport = transportService.getRTCTranport(socket.id);
+                await consumerTransport.setMaxOutgoingBitrate(30000)
                 const consumer = await consumerTransport.consume({
                     producerId: producer.id,
                     rtpCapabilities,
                     paused: true,
                 })
+                await consumer.setPreferredLayers({ spatialLayer: 10 });
 
                 const params = {
                     id: consumer.id,

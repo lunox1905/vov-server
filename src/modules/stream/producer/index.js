@@ -9,8 +9,9 @@ const { createLog } = require('../../notification/controller/noti');
 const ChannelControler = require('../../channel/controller/channel');
 
 const producers = new Map();
+let channels;
 async function initProducer() {
-    const channels = await ChannelControler.all();
+    channels = await ChannelControler.all();
     for (let i = 0; i < channels.length; i++) {
         const channelId = channels[i]._id.toString();
         const exitsChannel = producers.has(channelId);
@@ -71,8 +72,8 @@ const countChanel = () => {
     return { amountChannel, amountStream}
 }
 
-function checkProducer(peers, router) {
-    setInterval(async () => {
+function checkProducerActivity(peers, router, streamSwitchTime) {
+    const interval = setInterval(async () => {
         const promises = [];
         const producerFails = [];
         const producerDelete = [];
@@ -80,24 +81,28 @@ function checkProducer(peers, router) {
             value.forEach(item =>  {
                 if (item.isDelete === true) {
                     producerDelete.push(item.channelId)
-
+                    const channelName = channels.find(item => item._id.toString() === key).name
+                    const text = channelName ? ` trong kênh ${channelName}` : '';
                     createLog({
                             has_read:false,
                             level: "warning",
                             title: "producer is deleted",
-                            content: ` producer ${item.name} is deleted`
+                            content: `luồng phát ${item.id}${text} đã bị xóa`
                     })
                     peers.emit("new-noti")
 
                 }
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
+                        console.log(stats)
                         if (!stats || stats[0]?.bitrate === 0) {
+                            const channelName = channels.find(item => item._id.toString() === key).name
+                            const text = channelName ? ` trong kênh ${channelName}` : '';
                         createLog({
                                 has_read:false,
                                 level: "warning",
                                 title: "producer is disconneced",
-                                content: ` producer ${item.name} is disconnected`
+                                content: `luồng phát ${item.id}${text} mất kết nối`
                             })
                             peers.emit("new-noti")
                             item.isActive = false;
@@ -138,7 +143,9 @@ function checkProducer(peers, router) {
                     })
                 }
             })
-    }, 1000)
+    }, streamSwitchTime)
+
+    return interval;
 }
 async function main (router, socket) {
     socket.on('create-producer', async (data, callback) => {
@@ -148,6 +155,7 @@ async function main (router, socket) {
             throw new Error("Invalid channel")
         }
         const streamTransport = await transportService.createPlainTranport(router);
+        await streamTransport.setMaxOutgoingBitrate(30000)
         const producer = await streamTransport.produce({
             kind: 'audio',
             rtpParameters: {
@@ -353,6 +361,6 @@ module.exports = {
     getProducer,
     getProducerList,
     killProcessWriteHls,
-    checkProducer,
+    checkProducerActivity,
     countChanel
 };

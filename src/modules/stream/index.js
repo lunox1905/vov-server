@@ -9,7 +9,7 @@ const config = require('../../config/config_producer')
 const producerService = require('./producer/index')
 const consumeService = require('./consumer/index')
 const transportService = require('./transport')
-
+const SettingControler = require('../setting/controller/setting');
 require('dotenv').config();
 
 const BASE_URL = process.env.BASE_URL
@@ -40,6 +40,8 @@ const initIOServer = async (httpsServer) => {
     let consumerTransport
     let processWriteHLS = {};
     const mediaCodecs = config.mediaCodecs;
+    const setting = await SettingControler.info();
+    const streamSwitchTime = Number(setting.streamSwitchTime) * 1000 ?? 2000;
 
     const createWorker = async () => {
         worker = await mediasoup.createWorker({
@@ -56,7 +58,7 @@ const initIOServer = async (httpsServer) => {
         return router
     }
     router = await createWorker()
-
+    let checkProducerActivityInterval = producerService.checkProducerActivity(peers, router, streamSwitchTime);
     peers.on('connection', async socket => {
         socket.on('disconnect', () => {
             transportService.deleteRTCTranport(socket.id)
@@ -112,11 +114,17 @@ const initIOServer = async (httpsServer) => {
             const  { amountChannel, amountStream } = producerService.countChanel();
             
             callback({ amountChannel, amountPlayerHls, amountPlayerRTC, amountStream })
-          })
+        })
 
         await producerService.main(router, socket);
         await consumeService.main(router, peers, socket);
-        producerService.checkProducer(peers, router)
+
+        socket.on('update-stream-switch-time', (data) => {
+            const time = Number(data.time) * 1000;
+            clearInterval(checkProducerActivityInterval);
+            checkProducerActivityInterval = producerService.checkProducerActivity(peers, router, time);
+        })
+
     })
 }
 module.exports = {
