@@ -41,7 +41,13 @@ const initIOServer = async (httpsServer) => {
     let processWriteHLS = {};
     const mediaCodecs = config.mediaCodecs;
     const setting = await SettingControler.info();
-    const streamSwitchTime = Number(setting.streamSwitchTime) * 1000 ?? 2000;
+    let streamSwitchTime
+    if (!setting) {
+        streamSwitchTime=2000
+    }
+    else {
+         streamSwitchTime = Number(setting.streamSwitchTime) * 1000 ?? 2000;
+    }
 
     const createWorker = async () => {
         worker = await mediasoup.createWorker({

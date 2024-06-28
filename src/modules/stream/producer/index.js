@@ -19,6 +19,7 @@ async function initProducer() {
             producers.set(channelId, [])
         }
     }
+    console.log("prods",producers)
 }
 initProducer()
 const processWriteHLS = {};
@@ -152,7 +153,8 @@ async function main (router, socket) {
         const channels = await ChannelControler.all();
         const exitsChannel = channels.find(item => item._id.toString() === data.channelId);
         if(!exitsChannel) {
-            throw new Error("Invalid channel")
+            console.log("Invalid channel",data)
+            return 
         }
         const streamTransport = await transportService.createPlainTranport(router);
         await streamTransport.setMaxOutgoingBitrate(30000)
@@ -219,14 +221,15 @@ async function main (router, socket) {
         }
         addProducer(newData)
     })
-
     socket.on('list-producer', async () => {
         const results = [];
         socket.join('admin')
         const channels = await ChannelControler.all();
+        // console.log("channel", channels)
         for (let [key, value] of producers) {
             const streams = [];
             value.forEach(item => {
+                console.log("item",item)
               streams.push({
                 name: item.name,
                 id: item.id,
@@ -245,6 +248,7 @@ async function main (router, socket) {
                 streams
             })
         }
+        // console.log("result",results)
         socket.emit('emit-list-producer', results)
     })
 

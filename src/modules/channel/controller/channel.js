@@ -87,6 +87,7 @@ const detail = async (req, res) => {
 const updateChannel = async (req, res) => {
     try {
         const { id, name, ...data } = req.body;
+        console.log(req.body)
         if (name) {
             data.slug = createSlug(name);
         }
@@ -99,9 +100,18 @@ const updateChannel = async (req, res) => {
                 ...data ,
                 updated_at: new Date()
             })
-        res.status(200).json({
-            data: rows
-        })
+        console.log("row", rows)
+        if (rows) {
+            
+            res.status(200).json({
+                data: rows
+            })
+        }
+        else {
+            res.status(404).json({
+                message:"data not found"
+            })
+        }
     } catch (error) {
         console.log(error)
         res.status(500).json({
