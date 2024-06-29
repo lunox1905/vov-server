@@ -6,7 +6,6 @@ const path = require("path")
 const fs = require('fs');
 const { removeDir,overwriteFolder } = require('./utils.js')
 
-console.log('path::', path.resolve('../files'));
 const RECORD_FILE_LOCATION_PATH = process.env.RECORD_FILE_LOCATION_PATH || path.resolve('../vov-server/files');
 const myOS = getOS()
 module.exports = class FFmpeg {
@@ -113,11 +112,6 @@ module.exports = class FFmpeg {
         folderPath = `${RECORD_FILE_LOCATION_PATH}/hls/${this._rtpParameters.fileName}`
       }
       fs.mkdir(folderPath, (err) => {
-        if (err) {
-          console.error('Error creating folder:', err);
-        } else {
-          console.log('Folder created successfully:', folderPath);
-        }
       });
    
       commandArgs = commandArgs.concat([
