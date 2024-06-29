@@ -1,7 +1,6 @@
 const Noti = require("../model/noti")
 const createLog = async (data) => {
     try {
-        
         const { has_read, title, content, level } = data
         console.log(has_read,"- ", title,"-",content,"-",level)
         if (has_read==null || title==null || content==null || level==null) {
@@ -17,7 +16,6 @@ const createLog = async (data) => {
         return saveRecord
     } catch (error) {
         console.log(error)
-        // throw error
     }
 }
 const fetchLogs = async (req, res) => {

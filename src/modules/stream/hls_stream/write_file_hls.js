@@ -112,11 +112,14 @@ module.exports = class FFmpeg {
       else {
         folderPath = `${RECORD_FILE_LOCATION_PATH}/hls/${this._rtpParameters.fileName}`
       }
-      // overwriteFolder(folderPath)
-      if (fs.existsSync(folderPath)) {
-        fs.rmdirSync(folderPath, { recursive: true, force: true });
-      } 
-      fs.mkdirSync(folderPath);
+      fs.mkdir(folderPath, (err) => {
+        if (err) {
+          console.error('Error creating folder:', err);
+        } else {
+          console.log('Folder created successfully:', folderPath);
+        }
+      });
+   
       commandArgs = commandArgs.concat([
         `${folderPath}/${this._rtpParameters.fileName}.m3u8`
       ]);

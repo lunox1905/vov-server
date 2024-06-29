@@ -21,6 +21,7 @@ async function initProducer() {
             producers.set(channelId, [])
         }
     }
+    console.log("prods",producers)
 }
 initProducer()
 const processWriteHLS = {};
@@ -227,7 +228,6 @@ async function main (router, socket) {
         startRecord(router, producer, data.channelId, socket.id)
         socket.emit('add-directlink-success');
     })
-
     socket.on('list-producer', async () => {
         const results = [];
         socket.join('admin')
@@ -235,6 +235,7 @@ async function main (router, socket) {
         for (let [key, value] of producers) {
             const streams = [];
             value.forEach(item => {
+                console.log("item",item)
               streams.push({
                 name: item.name,
                 id: item.id,
@@ -246,17 +247,12 @@ async function main (router, socket) {
               })
             });
             const channel = channels.find(item => item._id.toString() === key);
-            const baseHLS = `${BASE_URL}/playhls/`;
-            if(channel) {
-                results.push({
-                    name: channel.name,
-                    slug: channel.slug,
-                    hlsLink: baseHLS + `${key}-hls.m3u8`,
-                    id: key,
-                    streams
-                })
-            }
-            
+            results.push({
+                name: channel.name,
+                slug: channel.slug,
+                id: key,
+                streams
+            })
         }
         socket.emit('emit-list-producer', results)
     })
