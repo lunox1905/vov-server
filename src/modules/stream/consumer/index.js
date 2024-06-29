@@ -5,9 +5,7 @@ async function main(router, peers, socket) {
     
     socket.on('transport-recv-connect', async ({ dtlsParameters }) => {
         const consumerTransport = transportService.getRTCTranport(socket.id);
-        console.log(consumerTransport)
         await consumerTransport.connect({ dtlsParameters });
-        console.log(consumerTransport)
     })
 
     socket.on('consume', async ({ rtpCapabilities, channelId }, callback) => {

@@ -11,7 +11,6 @@ const ChannelModel = require('../../channel/model/channel');
 
 const producers = new Map();
 let channels;
-const BASE_URL = process.env.BASE_URL
 async function initProducer() {
     channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
     for (let i = 0; i < channels.length; i++) {
@@ -21,7 +20,6 @@ async function initProducer() {
             producers.set(channelId, [])
         }
     }
-    console.log("prods",producers)
 }
 initProducer()
 const processWriteHLS = {};
@@ -91,12 +89,19 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                             content: `luồng phát ${item.id}${text} đã bị xóa`
                     })
                     peers.emit("new-noti")
+                    for (let i = 0; i < value.length; i++) {
+                        if(value[i].isActive) {
+                            item.isMainInput = false;
+                            value[i].isMainInput = true;
+                            break;
+                        }
+                    }
+                    peers.to(item.channelId).emit('reconnect');
 
                 }
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
                         if (!stats || stats[0]?.bitrate === 0) {
-                            console.log(stats)
                             if(item.sourch === 'link' && item.timeOut < 5) {
                                 item.timeOut += 1;
                                 return;
@@ -111,6 +116,13 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                             })
                             peers.emit("new-noti")
                             item.isActive = false;
+                            for (let i = 0; i < value.length; i++) {
+                                if(value[i].isActive) {
+                                    item.isMainInput = false;
+                                    value[i].isMainInput = true;
+                                    break;
+                                }
+                            }
                             producerFails.push({ name: item.name, channelId: item.channelId, slug: item.slug, id: item.id })
                             peers.to(item.channelId).emit('reconnect');
                         }
@@ -235,7 +247,6 @@ async function main (router, socket) {
         for (let [key, value] of producers) {
             const streams = [];
             value.forEach(item => {
-                console.log("item",item)
               streams.push({
                 name: item.name,
                 id: item.id,
