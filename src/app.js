@@ -12,6 +12,7 @@ const app = express();
 const authRouter = require('./modules/auth/routers/auth');
 const logRouter = require('./modules/notification/router/noti');
 const channelRouter = require('./modules/channel/router/channel');
+const settingRouter = require('./modules/setting/router/setting');
 const { hlsPlay } = require("./modules/stream/hls_stream/play_hls")
 const { startDBConnection, closeDBConnection } = require("./database/mongoDB")
 const { initIOServer } = require("../src/modules/stream/index");
@@ -37,6 +38,7 @@ app.use("/auth", authRouter)
 app.use('/playhls', hlsPlay)
 app.use('/logs', logRouter)
 app.use('/channel', channelRouter)
+app.use('/setting', settingRouter)
 
 httpsServer.listen(PORT, () => {
   console.log('listening on port: ' + PORT)

@@ -1,4 +1,5 @@
 const slugify = require('slugify')
+const path = require('path')
 
 const { getPort } = require('./port');
 const configProducer = require('../../../config/config_producer');
@@ -6,11 +7,13 @@ const transportService = require('../transport')
 const FFmpeg = require('../hls_stream/write_file_hls');
 const ConvertLink = require('./convert_link');
 const { createLog } = require('../../notification/controller/noti');
-const ChannelControler = require('../../channel/controller/channel');
+const ChannelModel = require('../../channel/model/channel');
 
 const producers = new Map();
+let channels;
+const BASE_URL = process.env.BASE_URL
 async function initProducer() {
-    const channels = await ChannelControler.all();
+    channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
     for (let i = 0; i < channels.length; i++) {
         const channelId = channels[i]._id.toString();
         const exitsChannel = producers.has(channelId);
@@ -18,19 +21,10 @@ async function initProducer() {
             producers.set(channelId, [])
         }
     }
+    console.log("prods",producers)
 }
 initProducer()
 const processWriteHLS = {};
-const createSlug = (name) => {
-    return slugify(name, {
-        replacement: '-',
-        remove: undefined,
-        lower: false,
-        strict: false,
-        locale: 'vi',
-        trim: true
-    })
-}
 
 const getProducer = (channelId) => {
     if (!producers.has(channelId) || producers.get(channelId).length == 0) {
@@ -61,6 +55,14 @@ const addProducer = (data) => {
     }
 }
 
+const addNewChannel = ({id}) => {
+    producers.set(id, [])
+}
+
+const deleteProducer = ({id}) => {
+    producers.delete(id)
+}
+
 const countChanel = () => {
     let amountChannel = 0;
     let amountStream = 0;
@@ -71,8 +73,8 @@ const countChanel = () => {
     return { amountChannel, amountStream}
 }
 
-function checkProducer(peers, router) {
-    setInterval(async () => {
+function checkProducerActivity(peers, router, streamSwitchTime) {
+    const interval = setInterval(async () => {
         const promises = [];
         const producerFails = [];
         const producerDelete = [];
@@ -80,12 +82,13 @@ function checkProducer(peers, router) {
             value.forEach(item =>  {
                 if (item.isDelete === true) {
                     producerDelete.push(item.channelId)
-
+                    const channelName = channels.find(item => item._id.toString() === key).name
+                    const text = channelName ? ` trong kênh ${channelName}` : '';
                     createLog({
                             has_read:false,
                             level: "warning",
                             title: "producer is deleted",
-                            content: ` producer ${item.name} is deleted`
+                            content: `luồng phát ${item.id}${text} đã bị xóa`
                     })
                     peers.emit("new-noti")
 
@@ -93,16 +96,23 @@ function checkProducer(peers, router) {
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
                         if (!stats || stats[0]?.bitrate === 0) {
+                            console.log(stats)
+                            if(item.sourch === 'link' && item.timeOut < 5) {
+                                item.timeOut += 1;
+                                return;
+                            }
+                            const channelName = channels.find(item => item._id.toString() === key).name
+                            const text = channelName ? ` trong kênh ${channelName}` : '';
                         createLog({
                                 has_read:false,
                                 level: "warning",
                                 title: "producer is disconneced",
-                                content: ` producer ${item.name} is disconnected`
+                                content: `luồng phát ${item.id}${text} mất kết nối`
                             })
                             peers.emit("new-noti")
                             item.isActive = false;
                             producerFails.push({ name: item.name, channelId: item.channelId, slug: item.slug, id: item.id })
-                            peers.to(item.name).emit('reconnect');
+                            peers.to(item.channelId).emit('reconnect');
                         }
                     }));
                 }
@@ -138,16 +148,19 @@ function checkProducer(peers, router) {
                     })
                 }
             })
-    }, 1000)
+    }, streamSwitchTime)
+
+    return interval;
 }
 async function main (router, socket) {
     socket.on('create-producer', async (data, callback) => {
-        const channels = await ChannelControler.all();
+        const channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
         const exitsChannel = channels.find(item => item._id.toString() === data.channelId);
         if(!exitsChannel) {
-            throw new Error("Invalid channel")
+            return;
         }
         const streamTransport = await transportService.createPlainTranport(router);
+        // await streamTransport.setMaxOutgoingBitrate(30000)
         const producer = await streamTransport.produce({
             kind: 'audio',
             rtpParameters: {
@@ -170,7 +183,7 @@ async function main (router, socket) {
         }
         let isMainInput = false;
         if (!producers.has(data.channelId) || !producers.get(data.channelId).find(item => item.isActive === true)) {
-            startRecord(router, producer, data.channelId, socket.id)
+            startRecord(router, producer, data.channelId, socket.id);
             isMainInput = true;
         }
         const newData = {
@@ -199,26 +212,30 @@ async function main (router, socket) {
             isMainInput = true;
         }
         const newData = {
-            name: data.name,
             channelId: data.channelId,
+            name: data.name,
             id: producer.id,
-            note: data.note,
+            uid: socket.id,
             producer: producer,
             transport,
             port: transport.tuple.localPort,
             isActive: true,
             isMainInput,
+            sourch: 'link',
+            timeOut: 0
         }
         addProducer(newData)
+        startRecord(router, producer, data.channelId, socket.id)
+        socket.emit('add-directlink-success');
     })
-
     socket.on('list-producer', async () => {
         const results = [];
         socket.join('admin')
-        const channels = await ChannelControler.all();
+        const channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
         for (let [key, value] of producers) {
             const streams = [];
             value.forEach(item => {
+                console.log("item",item)
               streams.push({
                 name: item.name,
                 id: item.id,
@@ -353,6 +370,8 @@ module.exports = {
     getProducer,
     getProducerList,
     killProcessWriteHls,
-    checkProducer,
-    countChanel
+    checkProducerActivity,
+    countChanel,
+    addNewChannel,
+    deleteProducer
 };

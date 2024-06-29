@@ -5,13 +5,15 @@ async function main(router, peers, socket) {
     
     socket.on('transport-recv-connect', async ({ dtlsParameters }) => {
         const consumerTransport = transportService.getRTCTranport(socket.id);
+        console.log(consumerTransport)
         await consumerTransport.connect({ dtlsParameters });
+        console.log(consumerTransport)
     })
 
     socket.on('consume', async ({ rtpCapabilities, channelId }, callback) => {
         try {
             if (!channelId) {
-                throw new Error(`Invalid channel:${channelId}`)
+                return;
             }
             socket.join(channelId);
             let producerWrapper = producerService.getProducer(channelId)
@@ -29,11 +31,13 @@ async function main(router, peers, socket) {
                 rtpCapabilities
             })) {
                 const consumerTransport = transportService.getRTCTranport(socket.id);
+                await consumerTransport.setMaxOutgoingBitrate(30000)
                 const consumer = await consumerTransport.consume({
                     producerId: producer.id,
                     rtpCapabilities,
                     paused: true,
                 })
+                await consumer.setPreferredLayers({ spatialLayer: 10 });
 
                 const params = {
                     id: consumer.id,

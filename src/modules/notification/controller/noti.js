@@ -1,7 +1,6 @@
 const Noti = require("../model/noti")
 const createLog = async (data) => {
     try {
-        
         const { has_read, title, content, level } = data
         console.log(has_read,"- ", title,"-",content,"-",level)
         if (has_read==null || title==null || content==null || level==null) {
@@ -17,13 +16,16 @@ const createLog = async (data) => {
         return saveRecord
     } catch (error) {
         console.log(error)
-        // throw error
     }
 }
 const fetchLogs = async (req, res) => {
     try {
-        let rows = await Noti.find({}).sort({created_at: -1});
+        const { currentPage, itemsPerPage } = req.query;
+        const skip = (Number(currentPage) - 1) * Number(itemsPerPage);
+        let rows = await Noti.find({}).sort({created_at: -1}).skip(skip).limit(itemsPerPage);
+        const total = await Noti.countDocuments({})
         res.status(200).json({
+            total: total,
             data: rows
         })
     } catch (error) {
