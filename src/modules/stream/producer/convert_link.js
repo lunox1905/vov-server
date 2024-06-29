@@ -8,7 +8,6 @@ module.exports = class ConvertLink {
         const { link, port } = options;
         this.link = link
         this.port = port
-        console.log('options', this.link, this.port);
         this._process = null;
         this._observer = new EventEmitter();
         this._createProcess();

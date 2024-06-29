@@ -1,7 +1,7 @@
-const slugify = require('slugify')
+const slugify = require('slugify');
 
-const Channel = require("../model/channel")
-
+const producerService = require('../../stream/producer/index')
+const Channel = require("../model/channel");
 const createSlug = (name) => {
     return slugify(name, {
         replacement: '-',
@@ -28,7 +28,8 @@ const create = async (req, res) => {
             slug,
             ...data
         })
-        const saveRecord = await record.save()
+        const saveRecord = await record.save();
+        producerService.addNewChannel({id: saveRecord._id.toString()})
         res.status(200).json({
             data: saveRecord
         })
@@ -114,6 +115,13 @@ const updateChannel = async (req, res) => {
 const deleteChannel = async (req, res) => {
     try {
         const { id } = req.body;
+        console.log(req.body)
+        if(!id) {
+            res.status(400).json({
+                success: false,
+                message: "miss id"
+            })
+        }
         let rows = await Channel.findOneAndUpdate(
             { 
                 _id: id 
@@ -121,6 +129,7 @@ const deleteChannel = async (req, res) => {
                 is_delete: true,
                 updated_at: new Date()
             })
+        // producerService.deleteProducer(id);
         res.status(200).json({
             data: rows
         })

@@ -22,8 +22,12 @@ const createLog = async (data) => {
 }
 const fetchLogs = async (req, res) => {
     try {
-        let rows = await Noti.find({}).sort({created_at: -1});
+        const { currentPage, itemsPerPage } = req.query;
+        const skip = (Number(currentPage) - 1) * Number(itemsPerPage);
+        let rows = await Noti.find({}).sort({created_at: -1}).skip(skip).limit(itemsPerPage);
+        const total = await Noti.countDocuments({})
         res.status(200).json({
+            total: total,
             data: rows
         })
     } catch (error) {

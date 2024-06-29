@@ -1,4 +1,5 @@
 const slugify = require('slugify')
+const path = require('path')
 
 const { getPort } = require('./port');
 const configProducer = require('../../../config/config_producer');
@@ -6,12 +7,13 @@ const transportService = require('../transport')
 const FFmpeg = require('../hls_stream/write_file_hls');
 const ConvertLink = require('./convert_link');
 const { createLog } = require('../../notification/controller/noti');
-const ChannelControler = require('../../channel/controller/channel');
+const ChannelModel = require('../../channel/model/channel');
 
 const producers = new Map();
 let channels;
+const BASE_URL = process.env.BASE_URL
 async function initProducer() {
-    channels = await ChannelControler.all();
+    channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
     for (let i = 0; i < channels.length; i++) {
         const channelId = channels[i]._id.toString();
         const exitsChannel = producers.has(channelId);
@@ -22,16 +24,6 @@ async function initProducer() {
 }
 initProducer()
 const processWriteHLS = {};
-const createSlug = (name) => {
-    return slugify(name, {
-        replacement: '-',
-        remove: undefined,
-        lower: false,
-        strict: false,
-        locale: 'vi',
-        trim: true
-    })
-}
 
 const getProducer = (channelId) => {
     if (!producers.has(channelId) || producers.get(channelId).length == 0) {
@@ -60,6 +52,14 @@ const addProducer = (data) => {
     if (!isExits) {
         producers.get(data.channelId).push(data)
     }
+}
+
+const addNewChannel = ({id}) => {
+    producers.set(id, [])
+}
+
+const deleteProducer = ({id}) => {
+    producers.delete(id)
 }
 
 const countChanel = () => {
@@ -94,8 +94,12 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                 }
                 if (item.producer && item.isActive === true) {
                     promises.push(item.producer.getStats().then(stats => {
-                        console.log(stats)
                         if (!stats || stats[0]?.bitrate === 0) {
+                            console.log(stats)
+                            if(item.sourch === 'link' && item.timeOut < 5) {
+                                item.timeOut += 1;
+                                return;
+                            }
                             const channelName = channels.find(item => item._id.toString() === key).name
                             const text = channelName ? ` trong kênh ${channelName}` : '';
                         createLog({
@@ -107,7 +111,7 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                             peers.emit("new-noti")
                             item.isActive = false;
                             producerFails.push({ name: item.name, channelId: item.channelId, slug: item.slug, id: item.id })
-                            peers.to(item.name).emit('reconnect');
+                            peers.to(item.channelId).emit('reconnect');
                         }
                     }));
                 }
@@ -149,13 +153,13 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
 }
 async function main (router, socket) {
     socket.on('create-producer', async (data, callback) => {
-        const channels = await ChannelControler.all();
+        const channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
         const exitsChannel = channels.find(item => item._id.toString() === data.channelId);
         if(!exitsChannel) {
-            throw new Error("Invalid channel")
+            return;
         }
         const streamTransport = await transportService.createPlainTranport(router);
-        await streamTransport.setMaxOutgoingBitrate(30000)
+        // await streamTransport.setMaxOutgoingBitrate(30000)
         const producer = await streamTransport.produce({
             kind: 'audio',
             rtpParameters: {
@@ -178,7 +182,7 @@ async function main (router, socket) {
         }
         let isMainInput = false;
         if (!producers.has(data.channelId) || !producers.get(data.channelId).find(item => item.isActive === true)) {
-            startRecord(router, producer, data.channelId, socket.id)
+            startRecord(router, producer, data.channelId, socket.id);
             isMainInput = true;
         }
         const newData = {
@@ -207,23 +211,27 @@ async function main (router, socket) {
             isMainInput = true;
         }
         const newData = {
-            name: data.name,
             channelId: data.channelId,
+            name: data.name,
             id: producer.id,
-            note: data.note,
+            uid: socket.id,
             producer: producer,
             transport,
             port: transport.tuple.localPort,
             isActive: true,
             isMainInput,
+            sourch: 'link',
+            timeOut: 0
         }
         addProducer(newData)
+        startRecord(router, producer, data.channelId, socket.id)
+        socket.emit('add-directlink-success');
     })
 
     socket.on('list-producer', async () => {
         const results = [];
         socket.join('admin')
-        const channels = await ChannelControler.all();
+        const channels = await ChannelModel.find({ is_delete: false }).sort({created_at: -1});
         for (let [key, value] of producers) {
             const streams = [];
             value.forEach(item => {
@@ -238,12 +246,17 @@ async function main (router, socket) {
               })
             });
             const channel = channels.find(item => item._id.toString() === key);
-            results.push({
-                name: channel.name,
-                slug: channel.slug,
-                id: key,
-                streams
-            })
+            const baseHLS = `${BASE_URL}/playhls/`;
+            if(channel) {
+                results.push({
+                    name: channel.name,
+                    slug: channel.slug,
+                    hlsLink: baseHLS + `${key}-hls.m3u8`,
+                    id: key,
+                    streams
+                })
+            }
+            
         }
         socket.emit('emit-list-producer', results)
     })
@@ -362,5 +375,7 @@ module.exports = {
     getProducerList,
     killProcessWriteHls,
     checkProducerActivity,
-    countChanel
+    countChanel,
+    addNewChannel,
+    deleteProducer
 };
