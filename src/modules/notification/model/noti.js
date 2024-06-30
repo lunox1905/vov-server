@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const notiSchema = new mongoose.Schema({
     has_read: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false,
     },
     title: {
         type: String,

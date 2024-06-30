@@ -9,6 +9,7 @@ const ConvertLink = require('./convert_link');
 const { createLog } = require('../../notification/controller/noti');
 const ChannelModel = require('../../channel/model/channel');
 
+const BASE_URL = process.env.BASE_URL;
 const producers = new Map();
 let channels;
 async function initProducer() {
@@ -258,9 +259,11 @@ async function main (router, socket) {
               })
             });
             const channel = channels.find(item => item._id.toString() === key);
+            const linkHls = BASE_URL + '/playhls/' + key + '-hls.m3u8'
             results.push({
                 name: channel.name,
                 slug: channel.slug,
+                linkHls: streams.length > 0 ? linkHls : '',
                 id: key,
                 streams
             })
