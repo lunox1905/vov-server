@@ -89,7 +89,7 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                             title: "producer is deleted",
                             content: `luồng phát ${item.id}${text} đã bị xóa`
                     })
-                    peers.emit("new-noti")
+                    peers.to('admin').emit("new-noti")
                     for (let i = 0; i < value.length; i++) {
                         if(value[i].isActive) {
                             item.isMainInput = false;
@@ -115,7 +115,7 @@ function checkProducerActivity(peers, router, streamSwitchTime) {
                                 title: "producer is disconneced",
                                 content: `luồng phát ${item.id}${text} mất kết nối`
                             })
-                            peers.emit("new-noti")
+                            peers.to('admin').emit("new-noti")
                             item.isActive = false;
                             for (let i = 0; i < value.length; i++) {
                                 if(value[i].isActive) {
